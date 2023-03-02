@@ -1,0 +1,85 @@
+{
+    "message": {
+        "app": {
+            "geolocation" : {
+                "request" : "J'ai besoin de la géolocalisation pour travailler",
+                "description": "Cette application utilise votre géolocalisation pour afficher les œuvres d'art à proximité, rien d'autre. Merci de l'accorder :)",
+                "no": "No quitter",
+                "settings": "Ouvrir les paramètres",
+                "yes": "Oui, continuer"
+            },
+            "likes" : {
+                "added": "{title} ajouté aux favoris",
+                "removed": "{title} supprimé des favoris"
+            },
+            "init": {
+                "info": "Découvrez Barcelona à travers de ses plages. Explorez les lieux qui vous entourent et ajoutez-les (♥) à votre liste de favoris.",
+                "button": "Commencez à explorer >"
+            }
+        },
+        "tabs": [
+            {
+                "title": "Photos",
+                "icon": "\ue3b6"
+            },
+            {
+                "title": "Carte",
+                "icon": "\ue55b"
+            },
+            {
+                "title": "À propos de",
+                "icon": "\ue88e"
+            }
+        ],
+        "cards": {
+            "approx_km": "{distance} km d'ici",
+            "approx_m": "{distance} m d'ici",
+            "no_items": "Plus d'éléments à afficher 😌\nUtilisez les filtres pour affiner votre recherche.",
+            "filter": {
+                "only_favs": "afficher uniquement les favoris",
+                "placeholder": "taper pour filtrer..."
+            }            
+        },
+        "main": {
+            "loading": "Chargement des oeuvres..."
+        },
+        "detail": {
+            "approx_km": "Environ à {distance} km d'ici",
+            "approx_m": "Environ à {distance} m d'ici",
+            "acknowledgements": "Un grand merci à nos contributeurs:",
+            "wikidata": "Wikidata",
+            "more_info": "Plus d'information:",
+            "loading_map": "Chargement de la carte...",
+            "share": {
+                "body": "Hé, vérifie {itemName} sur l'application {appName}. C'est à propos de {description} {url}",
+                "error": "Je n'ai pas pu partager le contenu :(" 
+            },
+            "buttons": {
+                "share": "Partager",
+                "navi": "Directions",
+                "feedback": "L'améliorer"
+            },
+            "url_navi": "https://www.petalmaps.com/nav/{from_lon},{from_lat}/{to_lon},{to_lat}/Mon%20emplacement/{name_poi}/walk" 
+        },
+        "about": {
+            "install" : {
+                "title": "Continuer à utiliser cette application?",
+                "button": "Installer l'application",
+                "description": "Installez l'icône dans votre écran d'accueil:",
+                "dialog": {
+                    "question": "Voulez-vous installer l'application pour l'utiliser plus tard?",
+                    "success": "Ouais! Icône de l'écran d'accueil créée",
+                    "error": "Je n'ai pas pu créer le raccourci ({error})",
+                    "already": "L'icône de l'écran d'accueil a déjà été créée"
+                } 
+            },
+            "acknowledments": "Grâce à:",
+            "acks": [
+                "Cartes par © OpenStreetMap"
+            ],
+            "release": "Publication de contenu:",
+            "involved": "Impliquez-vous maintenant!",
+            "repository": "Plus de détails sur ce projet"
+        }
+    }
+}

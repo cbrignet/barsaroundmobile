@@ -1,0 +1,67 @@
+<template>
+  <div id="map-container">
+    <div id="map">
+      <stack>
+        <web src="{{mapUrl}}" @pagefinish={{pagefinish}}></web>
+        <div class="loading" show={{loadingMap}}>
+          <text class="help">{{$t('message.detail.loading_map')}}</text>
+        </div>
+      </stack>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  private: { 
+    channel: null,
+    loadingMap: true,
+    mapUrl: 'https://geojson.pbest.me',
+  },
+  onInit() {
+    this.imageMap = this.$app.getAppData('globalMapImageURL')
+    this.channel = new BroadcastChannel('updateChannel');
+    this.mapUrl = this.$app.getAppData('globalMapURL')
+    this._subscribeChannelUpdate()
+    this.$app.track('access', `${this.$page.name}/map`)
+  },
+  onDestroy() {
+    this.channel.close()
+  },
+  pagefinish() {
+    this.loadingMap = false
+  },  
+  _subscribeChannelUpdate() {
+    const self = this
+    this.channel.onmessage = function (event) {
+      console.info(`[Main/mymap.ux] Received update message ${event.data}`)
+      if (event.data === 'ready') {
+        self.mapUrl = this.$app.getAppData('globalMapURL')
+      }
+    }
+  },
+}
+</script>
+
+<style lang="less">
+@import '../../common/styles/style.less';
+
+#map-container {
+  width: 100%;
+  flex-direction: column;
+  #map {
+    width: 100%;
+    height: 100%;
+    .static-map {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .loading {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+</style>

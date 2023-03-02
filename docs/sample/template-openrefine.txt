@@ -1,0 +1,13 @@
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type"].value)}},
+      "lon" : "{{jsonize(cells["lon"].value)}}",
+      "lat" : "{{jsonize(cells["lat"].value)}}",
+      "name" : {{jsonize(cells["name"].value)}},
+      "description" : {{jsonize(cells["description"].value)}},
+      "more" : {{ if(cells["more"].value!=null, jsonize(cells["more"].value), '""') }},
+      "images" : [{{ if(cells["image"].value!=null, jsonize(cells["image"].value), '') }}],
+      "attributions": ["Source: Thanks to...", "Your attributions here"],
+      "wikidata": {{ if(cells["wikidata"].value!=null, jsonize(cells["wikidata"].value), '""') }},
+      "urls": [{{if(cells["urls"].value!=null, jsonize(cells["urls"].value), '') }}]
+    }

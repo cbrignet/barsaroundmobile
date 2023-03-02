@@ -1,0 +1,82 @@
+{
+    "package": "es.espinr.comics",
+    "name": "BXL Comic Book Route",
+    "versionName": "1.1",
+    "versionCode": 2,
+    "minPlatformVersion": 1078,
+    "icon": "/common/images/logo.png",
+    "features": [
+        {
+            "name": "system.router"
+        },
+        {
+            "name": "system.cipher"
+        },
+        {
+            "name": "system.shortcut"
+        },
+        {
+            "name": "system.share"
+        },
+        {
+            "name": "system.geolocation"
+        },
+        {
+            "name": "system.fetch"
+        },
+        {
+            "name": "system.prompt"
+        },
+        {
+            "name": "system.device"
+        },
+        {
+            "name": "system.configuration"
+        },
+        {
+            "name": "system.webview"
+        },
+        {
+            "name": "system.storage"
+        },
+        {
+            "name": "service.push"
+        },
+        {
+            "name": "service.ad"
+        }
+    ],
+    "config": {
+        "logLevel": "debug",
+        "designWidth": 800
+    },
+    "permissionDesc": [
+        {
+            "name": "ACCESS_FINE_LOCATION",
+            "desc": "${message.app.geolocation.description}"
+        }
+    ],
+    "router": {
+        "entry": "pages/Main",
+        "pages": {
+            "pages/Main": {
+                "launchMode": "singleTask",
+                "component": "index"
+            },
+            "pages/Detail": {
+                "component": "index"
+            }
+        }
+    },
+    "display": {
+        "menu": true,
+        "pages": {
+            "pages/Main": {
+                "menu": true
+            },
+            "pages/Detail": {
+                "titleBar": false
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "es.espinr.oeartoom",
+  "version": "0.0.2",
+  "license": "MIT",
+  "repository": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/",
+  "description": "Priveral Atom Artwork in Leuven",
+  "scripts": {
+    "fa-build": "node node_modules/webpack/bin/webpack.js --progress --config ./node_modules/fa-toolkit/webpack.config.js",
+    "fa-watch": "node node_modules/webpack/bin/webpack.js --watch --progress --config ./node_modules/fa-toolkit/webpack.config.js",
+    "fa-release": "node ./node_modules/cross-env/src/bin/cross-env.js uglifyjs=false sign=release node_modules/webpack/bin/webpack.js --progress --config ./node_modules/fa-toolkit/webpack.config.js"
+  },
+  "devDependencies": {
+    "geolib": "^3.3.3",
+    "cross-env": "^7.0.2",
+    "fa-toolkit": "file:fa-toolkit-12.5.1-Stable.301.tgz"
+  }
+}

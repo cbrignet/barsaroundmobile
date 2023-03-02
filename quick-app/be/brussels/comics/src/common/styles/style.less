@@ -1,0 +1,43 @@
+@brand: #FE4A17;
+
+@size-factor: 10px;
+
+// Uses https://github.com/google/material-design-icons
+@font-face {
+  font-family: iconfont;
+  src: url('/common/fonts/material-icons.ttf');
+}
+.page-container {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #eaeaea;
+}
+.page-container text {
+  color: #585858;
+}
+a {
+  color: @brand;
+  text-decoration: underline;
+}
+.buttons-wrap {
+  width: 100%;
+  flex-direction: row;
+  padding: 3 * @size-factor;
+  justify-content: center;
+}
+.button {
+  border-width: 0.2 * @size-factor;
+  border-radius: 1 * @size-factor;
+  border-color: #808080;
+  background-color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1 * @size-factor;
+  padding-bottom: 1 * @size-factor;
+  color: @brand;
+}
+.circular-progress {
+  color: @brand;
+}
+

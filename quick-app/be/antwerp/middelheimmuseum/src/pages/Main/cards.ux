@@ -1,0 +1,297 @@
+<template>
+  <refresh class="refresh" refreshing="{{isRefreshing}}" onrefresh="refresh">
+    <div class="filterbar" style="position:{{positionFilterBar}}">
+      <input class="text" placeholder="{{$t('message.cards.filter.placeholder')}}" enterkeytype="search" @change="searchPoIs"/>
+      <div class="switch">
+        <label class="label">{{$t('message.cards.filter.only_favs')}}</label>
+        <div class="result">
+          <switch checked="{{filterFavorites}}" @change="changeFavs" class="{{switchClass()}}"></switch>
+        </div>
+      </div>
+    </div>
+    <stack class="page-container" ontouchstart="fixFilterBar" style="height:{{screenHeight}}">
+      <list id="poi-list" >
+        <list-item
+          type="poi"
+          class="item-poi"
+          for="pois"
+          if="{{filterPoI($item)}}"
+        >
+          <stack class="poi-image-wrap">
+            <image onclick="onItemClick($idx)" if="{{$item.images.length > 0 }}" src="{{$item.images[0]}}"></image>
+            <image onclick="onItemClick($idx)" else src="/common/images/placeholder.jpg"></image>
+            <div class="poi-overlay-bottom">
+              <text class="poi-overlay-like" onclick="toggleLike($idx)">{{ isLikedPoI($item.id)? iconLiked : iconUnliked }}</text>
+              <text class="poi-overlay-type" onclick="onItemClick($idx)" if={{$item.type}}>{{$item.type}}</text> 
+            </div>
+          </stack>
+          <div class="poi-text-wrap" onclick="onItemClick($idx)">
+            <div class="poi-text-title">
+              <text class="poi-text-name">{{ $item.name }}</text>
+              <text class="poi-text-distance">{{ prettifyDistance($item.distance) }}</text>
+            </div>
+            <text class="poi-text-description">{{ $item.description }}</text>
+          </div>
+        </list-item>
+        <list-item type="loadStatus" class="end-list">
+          <text>{{$t("message.cards.no_items")}}</text>
+        </list-item>
+      </list>
+    </stack>
+  </refresh>
+</template>
+
+<script>
+import router from '@system.router'
+import storage from '@system.storage'
+
+export default {
+  private: {
+    introText: '' ,
+    pois: [],
+    isRefreshing: false,
+    channel: null,
+    iconLiked: '\ue87d',
+    iconUnliked: '\ue87e',
+    currentLikedIds: [],
+    filterByText: '', 
+    positionFilterBar: 'absolute',
+    filterFavorites: false
+  },
+  onInit() {
+    this.currentLikedIds = this.$app.getAppData('likedIds')
+    this.channel = new BroadcastChannel('updateChannel')
+    this.introText = `${this.$app.manifest.name} v${this.$app.manifest.versionName}`
+    // Waits for the signal to load the page
+    this._loadAndRender()
+    this._subscribeChannelUpdate()
+    this.screenHeight = this.$app.getAppData('screenHeight')
+    this.$app.track('access', `${this.$page.name}/cards`)
+  },
+  filterPoI(item) {
+    const valueToSearch = this.filterByText.trim().toLowerCase()
+    if (item.name.toLowerCase().includes(valueToSearch) || item.type.toLowerCase().includes(valueToSearch)) {
+      return !this.filterFavorites || this.currentLikedIds.includes(item.id)
+    }
+    return false 
+  },
+  searchPoIs(ev) {
+    this.$element('poi-list').scrollTo({ index: 0 });
+    this.filterByText = ev.value
+  },
+  changeFavs(ev) {
+    this.filterFavorites = ev.checked
+    const valueToStore = this.filterFavorites? 'true' : 'false'
+    storage.set({
+        key: 'filter_favorites_switch',
+        value: valueToStore })
+    this.$app.setAppData('filterFavorites', this.filterFavorites)
+  },  
+  onDestroy() {
+    this.channel.close()
+  },  
+  // This method is triggered when receives an update message
+  _subscribeChannelUpdate() {
+    const self = this
+    this.channel.onmessage = function (event) {
+      console.info(`[Main/cards.ux] Received update message ${event.data}`)
+      if (event.data === 'ready') {
+        self._loadAndRender()
+      }
+    }
+  },
+  noFavoriteItems() {
+    return this.currentLikedIds.length === 0
+  },
+  refresh(e) {
+    const self = this
+    console.info(`[n] Refreshing cards...`)
+    this.isRefreshing = e.refreshing
+    this.$app.geolocateUser().then(() => {
+      this.$parent().updatePoisByDistance()
+      self._loadAndRender()
+      self.isRefreshing = false
+      console.info(`   ✔️ Cards re-loaded!`)
+    })
+  },   
+  /**
+   * Request and Render
+   */
+  _loadAndRender() {
+    // Re-request data and determine whether to render the list based on the mode.
+    this.currentLikedIds = this.$app.getAppData('likedIds')
+    console.log(`   ✔️ ${this.currentLikedIds.length} PoIs currently liked`)
+    this.pois = [].concat(this.$app.getAppData('pois'))
+    this.filterFavorites = this.$app.getAppData('filterFavorites')    
+  },
+  fixFilterBar() {
+    this.positionFilterBar = "fixed"
+  },
+  prettifyDistance(value) { 
+    try {
+      const number = parseInt(value);
+      if (number > 1000) {
+        return this.$t('message.cards.approx_km', { distance: (value/1000).toFixed(2) })        
+      }
+    } catch (ex) {
+      return ''
+    }
+    return this.$t('message.cards.approx_m', { distance: value })
+  },
+  onItemClick(index) {
+    router.push({ 
+      uri: 'pages/Detail', 
+      params: { 
+        identifier: this.pois[index].id, 
+        distance: this.pois[index].distance 
+      } 
+    })
+  },
+  isLikedPoI(id) {
+    return this.currentLikedIds.includes(id)
+  },
+  toggleLike(index) {
+    console.log('liking ' + this.pois[index].id)
+    // Retrieve the likes stored in the data cache
+    this.currentLikedIds = this.$app.toggleLikedPoi(this.pois[index].id, this.pois[index].name)
+  },
+  switchClass(){
+    return this.filterFavorites? 'switch-yes' : 'switch-no'
+  }
+}
+</script>
+
+<style lang="less">
+@import '../../common/styles/style.less'; 
+.page-container {
+  margin-top: 8 * @size-factor;
+}
+.refresh {
+  flex-direction: column;
+  .filterbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    width: 100%;
+    padding: 1 * @size-factor;
+    .switch {
+      width: 35%;
+      justify-content: center;
+      align-self: flex-end;
+      .label {
+        font-size: 2 * @size-factor;
+        text-align: right;
+      }
+      switch {
+        track-color: @brand;
+      }
+      .switch-no {
+        track-color: #aaaaaa;
+      }
+      margin-right: 1 * @size-factor;
+    }
+    .text {
+      margin-left: 1 * @size-factor;
+      padding: 1 * @size-factor;
+      width: 60%;
+      border-width: 0.2 * @size-factor;
+      border-radius: 1 * @size-factor;
+      font-size: 3 * @size-factor;
+      border-color: #fafafa;
+      background-color: #fafafa;
+      align-items: center;
+      justify-content: center;
+      color: @brand;
+    }    
+  }
+}
+#poi-list{
+  margin-top: 2 * @size-factor;
+}
+.item-poi {
+  flex-direction: column;
+  width: 100%;
+  height: 70 * @size-factor;
+  border-radius: 1.6 * @size-factor;
+  margin-top: 1 * @size-factor;
+  margin-bottom: 1 * @size-factor;
+  margin-left: 2 * @size-factor;
+  margin-right: 2 * @size-factor;
+  .poi-image-wrap {
+    height: 50 * @size-factor;
+    justify-content: flex-end;
+    image {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 1.6 * @size-factor;
+      border-top-right-radius: 1.6 * @size-factor;
+    }
+    .poi-overlay-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-self: flex-end;
+      width: 100%;
+      .poi-overlay-like {
+        color: #ffffff;
+        height: 8 * @size-factor;
+        font-size: 7.5 * @size-factor;
+        margin-bottom: 2 * @size-factor;
+        padding: 2 * @size-factor;
+        font-family: iconfont;
+      }
+      .poi-overlay-type {
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 4 * @size-factor;
+        font-size: 3 * @size-factor;
+        align-self: flex-end;
+        font-weight: lighter;
+        margin-bottom: 2 * @size-factor;
+        padding: 1 * @size-factor;
+        padding-top: 0;
+      }
+    }
+  }
+  .poi-text-wrap {
+    width: 100%;
+    height: 30%;
+    padding: 1.6 * @size-factor;
+    background-color: #ffffff;
+    flex-direction: column;
+    border-bottom-left-radius: 1.6 * @size-factor;
+    border-bottom-right-radius: 1.6 * @size-factor;
+    .poi-text-title {
+      flex-direction: row;
+      justify-content: space-between;
+      .poi-text-name {
+        color: #000000;
+        font-size: 3.6 * @size-factor;
+        lines: 1;
+        text-overflow: ellipsis;
+      }
+      .poi-text-distance {
+        color: #444444;
+        font-size: 2.4 * @size-factor;
+      }
+    }
+    .poi-text-description {
+      margin-top: 0.8 * @size-factor;
+      color: #585858;
+      font-size: 3 * @size-factor;
+      lines: 3;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.end-list {
+  width: 100%;
+  margin-top: 5 * @size-factor;
+  text {
+    text-align: center;
+    width: 100%;
+    padding-top: 2 * @size-factor;
+    padding-bottom: 2 * @size-factor;    
+  }
+}
+</style>

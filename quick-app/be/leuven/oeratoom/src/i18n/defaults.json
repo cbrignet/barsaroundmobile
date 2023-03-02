@@ -1,0 +1,108 @@
+{
+    "message": {
+        "app": {
+            "geolocation" : {
+                "request" : "I need geolocation to work",
+                "description": "This app uses your geolocation to show the physical assets nearby, nothing else. Please grant it :)",
+                "no": "No, thanks",
+                "yes": "Yes, I'm okay"
+            }
+        },
+        "tabs": [
+            {
+                "title": "Cards",
+                "icon": "\ue3b6"
+            },
+            {
+                "title": "Today",
+                "icon": "\ue8df"
+            },
+            {
+                "title": "Map",
+                "icon": "\ue55b"
+            },
+            {
+                "title": "About",
+                "icon": "\ue88e"
+            }
+        ],
+        "cards": {
+            "approx_km": "Medallion at {distance} km from here",
+            "approx_m": "Medallion at {distance} m from here",
+            "no_items": "No more data",
+            "type": "{type} galaxy ",
+            "constellation": "part of the {constellation} constellation",
+            "discoverers": ", discovered by {discoverers} ",
+            "year_discovery": "in {year}",
+            "age": "Universe's age: {age}"
+        },
+        "main": {
+            "loading": "Loading galaxies..."
+        },
+        "detail": {
+            "approx_km": "Medallion at {distance} km from here",
+            "approx_m": "Medallion at {distance} m from here",
+            "acknowledgements": "A big thanks to our contributors:",
+            "wikidata": "Wikidata",
+            "more_info": "More information:",
+            "loading_map": "Loading map...",
+            "share": {
+                "body": "Hey, check {itemName} on {appName}. It's about {description} {url}",
+                "error": "I couldn't share the content :(" 
+            },
+            "buttons": {
+                "share": "Share",
+                "feedback": "Improve it"
+            },
+            "type": "{type} galaxy",
+            "constellation": "Part of the {constellation} constellation",
+            "discoverers": "Discovered by {discoverers} ",
+            "year_discovery": "in {year}",
+            "loc": "Library of Congress",
+            "freebase": "Freebase",
+            "catalogue": "Principal Galaxies Catalogue",
+            "quora_topic": "Discussion topic in Quora:",
+            "medallion_map": "The medallion on the map:",
+            "age": "Universe's age: {age}"
+        },
+        "about": {
+            "install" : {
+                "title": "Keep using this app?",
+                "button": "Install App",
+                "description": "Install the icon on your homescreen:",
+                "dialog": {
+                    "question": "Do you want to install the app to use it later?",
+                    "success": "Yeah! Homescreen icon created",
+                    "error": "I couldn't create the shortcut ({error})",
+                    "already": "Homescreen icon created already"
+                } 
+            },
+            "acknowledments": "Thanks to:",
+            "acks": [
+                "City of Leuven", 
+                "Maps by © OpenStreetMap", 
+                "Default Galaxy image by Victoruler from NounProject.com"
+            ],
+            "release": "Content Release:",
+            "involved": "Get involved now!",
+            "repository": "More details of this project"
+        },
+        "today" : {
+            "intro": "Based your current position, you are",
+            "after": "after the Big Bang",
+            "ring": "Go to Leuven, where all started",
+            "billion": "{years} billion years",
+            "million": "{years} million years",
+            "zero": "before the Big Bang",
+            "walk": "Walk towards the Central Medallion to travel forwards to today (13.78 billion years after the Big Bang)."
+        },
+        "intro" : {
+            "title" : "The Universe at your feet",
+            "help" : "Did you know that Leuven is the origin of the Big Bang theory? In 1931, Prof. Georges Lemaître introduced his revolutionary theory at the University of Leuven.",
+            "help2" : "A permanent urban artwork in tribute, Oeratoom (Primeval Atom), transforms the heart of the city into the universe. Discover the metallic medallions and travel back in time.",
+            "img": "/assets/images/oeratoom-help_en.jpg",
+            "aware": "For a full experience use this app inside the Leuven Ring.",
+            "button": "LET´S GO >"
+        }
+    }
+}

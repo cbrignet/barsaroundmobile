@@ -1,0 +1,33 @@
+{
+  "name": "es.espinr.leuven",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations",
+  "description": "Leuven Cultural Heritage Quick App",
+  "scripts": {
+    "fa-build": "node node_modules/webpack/bin/webpack.js --config ./node_modules/fa-toolkit/webpack.config.js",
+    "fa-watch": "node node_modules/webpack/bin/webpack.js --watch --config ./node_modules/fa-toolkit/webpack.config.js",
+    "fa-release": "node ./node_modules/cross-env/src/bin/cross-env.js uglifyjs=true sign=release node_modules/webpack/bin/webpack.js --config ./node_modules/fa-toolkit/webpack.config.js",
+    "server": "hap server",
+    "postinstall": "hap postinstall",
+    "debug": "hap debug",
+    "build": "hap build",
+    "release": "hap release",
+    "watch": "hap watch",
+    "hap-update": "hap update"
+  },
+  "devDependencies": {
+    "geolib": "^3.3.3",
+    "cross-env": "^7.0.2",
+    "fa-toolkit": "file:fa-toolkit-12.5.1-Stable.301.tgz",
+    "hap-toolkit": "*",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-plugin-hybrid": "0.0.5",
+    "sass-loader": "^8.0.2",
+    "node-sass": "^4.13.1"
+  },
+  "subversion": {
+    "toolkit": "0.2.2"
+  }
+}

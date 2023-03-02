@@ -1,0 +1,65 @@
+<template>
+    <div @click="openNavi" class="navi-button">
+        <text class="icon">{{ iconDirections }}</text>
+        <text>{{$t('message.detail.buttons.navi')}}</text>
+    </div>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+    private: {
+        iconDirections: '\ue52e',
+    },
+    props: {
+        to_lat: {
+            required: true,
+        },
+        to_lon: {
+            required: true,
+        },
+        name_poi: {
+            required: true,
+        },
+    },
+    onInit() {
+    },
+    openNavi(ev) {
+        const myCoordinates = this.$app.getAppData('myCoordinates')
+        const url = this.$t('message.detail.url_navi', { 
+            from_lat: myCoordinates.lat, 
+            from_lon: myCoordinates.lon, 
+            to_lat: this.to_lat, 
+            to_lon: this.to_lon, 
+            name_poi: this.name_poi })
+        router.push({ 
+            uri: url, 
+            params: {} 
+        });        
+        console.log(`Opening Navi URL ${url}`)
+    },
+}
+</script>
+
+<style lang="less">
+
+@import '../../../common/styles/style.less'; 
+
+.navi-button {
+    flex-direction: row;
+    border-width: 0.1 * @size-factor;
+    border-radius: 0.6 * @size-factor;
+    border-color: #808080;
+    background-color: #fafafa;
+    align-items: center;
+    padding: 0.5 * @size-factor;
+    text {
+        font-size: 2.5 * @size-factor;
+    }
+    .icon {
+        font-family: iconfont;
+        font-size: 3 * @size-factor;
+    }
+}
+</style>

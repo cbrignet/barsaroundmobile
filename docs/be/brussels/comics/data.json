@@ -1,0 +1,867 @@
+{
+  "meta": {
+      "app_id": "es.espinr.comics",
+      "app_title": "BXL Comic Book Route",
+      "version": 6,
+      "updated": "2023-01-03",
+      "source_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/brussels/comics/data.json",
+      "matomo_base_url": "https://matomo.pbest.me/matomo.php?idsite=1&rec=1",
+      "marketplace_url": "https://appgallery.huawei.com/app/C106421983",
+      "native_ad_unit_id": "v9iwhfwfpx"
+  },
+  "content": {
+      "en": {
+          "app": {
+              "theme": {
+                  "brand": "#FE4A17",
+                  "complementary": "#ffffff"
+              },
+              "place": "Brussels",
+              "repository_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/",
+              "text_info": "This app is created by locals and experts with no commercial objectives. As you can see, it's also free of charge. Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures.",
+              "text_acknowledge": "This quick app is an open-source project powered by Brussels Open Data and Wikidata and enriched by the community. Most of the information was extracted from Wikidata, OpenStreetMaps, and other public sources. You can find inaccuracies, so we apologize in advance.",
+              "text_feedback": "Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures. This app is created by locals and experts.",
+              "feedback_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/brussels/comics/#get-involved",
+              "issue_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/issues/new?labels=be/comics&template=update_request.md&title=Update+Request"
+          },
+          "pois": [
+              {
+                   "id" : "Q863286",
+                   "name" : "Billy the Cat",
+                   "description" : "Comic book by Colman  and  Desberg in 2000",
+                   "lat" : 50.8534930829,
+                   "lon" : 4.34524297714,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/0c23baaead4ec7e0a9febe61e0633047"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/9582/"],
+                   "freebase" : "/m/079ch0",
+                   "wikimedia" : "Q863286"
+                 }
+             ,
+              {
+                   "id" : "Q611537",
+                   "name" : "Blondin & Cirage - Blondie & Blinkie",
+                   "description" : "Comic book by Jijé in 1998",
+                   "lat" : 50.8382916052,
+                   "lon" : 4.34736728668,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/e3b8b7b02b73d4559a210ed2f2732cb2"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q611537"
+                 }
+             ,
+              {
+                   "id" : "Q25395384",
+                   "name" : "La Vache - De Koe",
+                   "description" : "Comic book by Johan de Moor in 1999",
+                   "lat" : 50.8528725,
+                   "lon" : 4.357844,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/1863e288e9247fd3f63c93ba0c6b29a5"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q25395384"
+                 }
+             ,
+              {
+                   "id" : "Q4537599",
+                   "name" : "Schtroumpfs - Smurfen (Smurfs)",
+                   "description" : "Comic book by Peyo in 2018",
+                   "lat" : 50.845641,
+                   "lon" : 4.355886,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/e89705bfe2b80e6e73f42c1dfda1c16c"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/100275/"],
+                   "freebase" : "/m/043qx2h",
+                   "wikimedia" : "Q4537599",
+                   "favorite": true
+                 }
+             ,
+              {
+                   "id" : "elodie_shanta_6",
+                   "name" : "Après-midi place Bockstael - 's Namiddags  aan het Bockstaelplein",
+                   "description" : "Comic book by Elodie Shanta in 2021",
+                   "lat" : 50.877108,
+                   "lon" : 4.346971,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/d7244fa78a65e9bc49ac482343340200"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "elodie_shanta_6"
+                 }
+             ,
+              {
+                   "id" : "Q263986",
+                   "name" : "Benoit Brisefer - Steven Sterk",
+                   "description" : "Comic book by Peyo in 2015",
+                   "lat" : 50.8391525,
+                   "lon" : 4.3504241,
+                   "images" : [],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/72680/"],
+                   "freebase" : "/m/0ffhrd",
+                   "wikimedia" : "Q263986"
+                 }
+             ,
+              {
+                   "id" : "Q12116",
+                   "name" : "Corto Maltese",
+                   "description" : "Comic book by Pratt in 2009",
+                   "lat" : 50.8605342,
+                   "lon" : 4.3485253,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/21a653087012d0a110d8ea37b66a549a"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/0166jt",
+                   "wikimedia" : "Q12116"
+                 }
+             ,
+              {
+                   "id" : "Q51393",
+                   "name" : "LGBT",
+                   "description" : "Comic book by Ralf König in 2015",
+                   "lat" : 50.846751,
+                   "lon" : 4.349346,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/1fbd8432358b23177561a68366b4312e"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/0m8dk",
+                   "wikimedia" : "Q51393"
+                 }
+             ,
+              {
+                   "id" : "Q1195574",
+                   "name" : "Quick & Flupke",
+                   "description" : "Comic book by Herg?? in 2015",
+                   "lat" : 50.840422,
+                   "lon" : 4.350264,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/19e870c2fd99c38bc1435021617a8389"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/058qxs",
+                   "wikimedia" : "Q1195574"
+                 }
+             ,
+              {
+                   "id" : "Q2240755",
+                   "name" : "Le Chat - De Kat",
+                   "description" : "Comic book by Philippe Geluck in 1993",
+                   "lat" : 50.8378444279,
+                   "lon" : 4.34198141098,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/55f00cb9735ad5e3ac76deb2ae863be0"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/09krc4",
+                   "wikimedia" : "Q2240755"
+                 }
+             ,
+              {
+                   "id" : "yslaire_16",
+                   "name" : "L'Ange de Sambre - De Aartsengel",
+                   "description" : "Comic book by Yslaire in 1998",
+                   "lat" : 50.8489412883,
+                   "lon" : 4.34687376022,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/b0c9a62962686c954fafb8c00b971f1c"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "yslaire_16"
+                 }
+             ,
+              {
+                   "id" : "eva_roussel_17",
+                   "name" : "Solastalgie",
+                   "description" : "Comic book by Eva Roussel in 2021",
+                   "lat" : 50.8807067871,
+                   "lon" : 4.34292840958,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/f172cca2444f7d0276a71cbde762877b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "eva_roussel_17"
+                 }
+             ,
+              {
+                   "id" : "Q18221660",
+                   "name" : "Marsupilami",
+                   "description" : "Comic book by Franquin in 2013",
+                   "lat" : 50.8907142,
+                   "lon" : 4.3371644,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/4d909466e3164c0ef0e0d5ae4a21a1d0"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q18221660"
+                 }
+             ,
+              {
+                   "id" : "mathilde_van_gheluwe_19",
+                   "name" : "La Voie lactée",
+                   "description" : "Comic book by Mathilde Van Gheluwe in 2019",
+                   "lat" : 50.8394619195,
+                   "lon" : 4.34260158861,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/1f86cb113cd88bb60405f77a4c13fc73"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "mathilde_van_gheluwe_19"
+                 }
+             ,
+              {
+                   "id" : "Q59991",
+                   "name" : "Boule & Bill - Bollie & Billie",
+                   "description" : "Comic book by Roba in 1992",
+                   "lat" : 50.8376411641,
+                   "lon" : 4.3455862999,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/4e84973dda8839c63fb15edbe02671c7"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/28180/"],
+                   "freebase" : "/m/0dtfb_",
+                   "wikimedia" : "Q59991"
+                 }
+             ,
+              {
+                   "id" : "mezzo_23",
+                   "name" : "Le roi des mouches",
+                   "description" : "Comic book by Mezzo in 2007",
+                   "lat" : 50.87640787,
+                   "lon" : 4.35762405396,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/b5cffaab92e82e4a0a93c1579632d32a"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "mezzo_23"
+                 }
+             ,
+              {
+                   "id" : "Q59990",
+                   "name" : "Blake & Mortimer",
+                   "description" : "Comic book by Jacobs in 2005",
+                   "lat" : 50.8398908,
+                   "lon" : 4.3513569,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/5082678d893671de023f9157caa227fa"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/47645/"],
+                   "freebase" : "/m/03vj46",
+                   "wikimedia" : "Q59990"
+                 }
+             ,
+              {
+                   "id" : "atak_29",
+                   "name" : "Le monde … l'envers - De omgekeerde wereld",
+                   "description" : "Comic book by Atak in 2021",
+                   "lat" : 50.87798328811941,
+                   "lon" : 4.348827242299489,
+                   "images" : [],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "atak_29"
+                 }
+             ,
+              {
+                   "id" : "marcel_marlier_30",
+                   "name" : "Martine - Tinny",
+                   "description" : "Comic book by Marcel Marlier in 2004",
+                   "lat" : 50.876218314,
+                   "lon" : 4.35929775238,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/928f29a147e577c70480d4f905254d31"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "marcel_marlier_30"
+                 }
+             ,
+              {
+                   "id" : "Q2476864",
+                   "name" : "Broussaille - Ragebol",
+                   "description" : "Comic book by Frank Pé in 1999",
+                   "lat" : 50.8467465143,
+                   "lon" : 4.34942722321,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/b17daccbf026ff22035464e3d0f12b51"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q2476864"
+                 }
+             ,
+              {
+                   "id" : "Q2939954",
+                   "name" : "Caroline Baldwin",
+                   "description" : "Comic book by Taymans  and  Wesel in 2003",
+                   "lat" : 50.8487380728,
+                   "lon" : 4.33895587921,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/310a0910ca6fc0d6eb6845f8b1fca476"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q2939954"
+                 }
+             ,
+              {
+                   "id" : "dominique_goblet_33",
+                   "name" : "Le grand loup qui porte le mouton - De grote Wolf die het schaap draagt",
+                   "description" : "Comic book by Dominique Goblet in 2018",
+                   "lat" : 50.855695,
+                   "lon" : 4.354617,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/a31cf373a27e95cd780b16b4af33954b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "dominique_goblet_33"
+                 }
+             ,
+              {
+                   "id" : "schuiten_34",
+                   "name" : "Le Passage - De Doorgang",
+                   "description" : "Comic book by Schuiten in 1995",
+                   "lat" : 50.8462858696,
+                   "lon" : 4.35052156448,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/61c668b7ebdc3b30596e374ddad9bc3b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "schuiten_34"
+                 }
+             ,
+              {
+                   "id" : "Q427480",
+                   "name" : "Léonard",
+                   "description" : "Comic book by Turk  and  De Groot in 2015",
+                   "lat" : 50.8381135,
+                   "lon" : 4.3468826,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/1a2f0b57f0fbcd573ae2ef2b7616945f"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/04yszr",
+                   "wikimedia" : "Q427480"
+                 }
+             ,
+              {
+                   "id" : "Q3349274",
+                   "name" : "Odilon Verjus - Govert Suurbier",
+                   "description" : "Comic book by Verron  and  Yann in 2004",
+                   "lat" : 50.8386439237,
+                   "lon" : 4.34633731842,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/6dbba6f299b0ace70c476a0bca8518a0"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q3349274"
+                 }
+             ,
+              {
+                   "id" : "Q128277",
+                   "name" : "Thorgal",
+                   "description" : "Comic book by Grzegorz Rosinski  and  Jean Van Hamme in 2013",
+                   "lat" : 50.8436175268,
+                   "lon" : 4.34409090675,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/761fbc33410c8ee3dcc577a7151eb9af"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/022ccz",
+                   "wikimedia" : "Q128277"
+                 }
+             ,
+              {
+                   "id" : "aurélie_william_levaux_38",
+                   "name" : "Le petit gilet",
+                   "description" : "Comic book by Aurélie William Levaux in 2019",
+                   "lat" : 50.8391908515,
+                   "lon" : 4.34207719601,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/a91bd357f1bcdacb44c7aa4eea685d77"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "aurélie_william_levaux_38"
+                 }
+             ,
+              {
+                   "id" : "Q55395466",
+                   "name" : "Petit Poilu - Stoppeltje",
+                   "description" : "Comic book by Céline Fraipont  and  Pierre Bailly in 2020",
+                   "lat" : 50.8929672241,
+                   "lon" : 4.42356586456,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/9f7af2d4543c532cb7ecde36b5f4822c"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q55395466"
+                 }
+             ,
+              {
+                   "id" : "fabienne_loodts_40",
+                   "name" : "Les ancêtres bienveillants",
+                   "description" : "Comic book by Fabienne Loodts in 2019",
+                   "lat" : 50.8399042095,
+                   "lon" : 4.34353265336,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/1f86cb113cd88bb60405f77a4c13fc73"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "fabienne_loodts_40"
+                 }
+             ,
+              {
+                   "id" : "Q94349",
+                   "name" : "Le Scorpion - De Schorpioen",
+                   "description" : "Comic book by Marini in 2002",
+                   "lat" : 50.8477626262,
+                   "lon" : 4.3621301651,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/911d3d085d018edc2900ffc719e3b755"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/60538/"],
+                   "freebase" : "/m/0cny__8",
+                   "wikimedia" : "Q94349"
+                 }
+             ,
+              {
+                   "id" : "Q42490",
+                   "name" : "Astérix & Obélix",
+                   "description" : "Comic book by Goscinny  and  Uderzo in 2005",
+                   "lat" : 50.8464078054,
+                   "lon" : 4.34236764908,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/8949022f8f4a09a86fe477f4003c14f4"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/85801/"],
+                   "freebase" : "/m/0wrr",
+                   "wikimedia" : "Q42490",
+                   "favorite": true
+                 }
+             ,
+              {
+                   "id" : "Q737153",
+                   "name" : "Gaston Lagaffe - Guust Flater",
+                   "description" : "Comic book by Franquin in 2007",
+                   "lat" : 50.8492461098,
+                   "lon" : 4.3537402153,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/b6aa0a6c1281abbc2fb0669849b36830"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/99388/"],
+                   "freebase" : "/m/012grr",
+                   "wikimedia" : "Q737153"
+                 }
+             ,
+              {
+                   "id" : "Q2047572",
+                   "name" : "Kiekeboe",
+                   "description" : "Comic book by Merho in 2009",
+                   "lat" : 50.8936569,
+                   "lon" : 4.3516674,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/c05b263e1a9d36b393e7ea3c2b5b84be"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/04d_qtc",
+                   "wikimedia" : "Q2047572"
+                 }
+             ,
+              {
+                   "id" : "Q1217971",
+                   "name" : "La patrouille des Castors - De Beverpatrouille",
+                   "description" : "Comic book by Mitacq in 2003",
+                   "lat" : 50.8356220289,
+                   "lon" : 4.3444275856,
+                   "images" : [],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/04gls97",
+                   "wikimedia" : "Q1217971"
+                 }
+             ,
+              {
+                   "id" : "Q1199290",
+                   "name" : "Le Petit Spirou - De Kleine Robbedoes",
+                   "description" : "Comic book by Tome  and  Janry in 1996",
+                   "lat" : 50.8942608,
+                   "lon" : 4.34231,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/ab06b4290145f703c8ce101b0355bce7"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/0bt1f4",
+                   "wikimedia" : "Q1199290"
+                 }
+             ,
+              {
+                   "id" : "Q174874",
+                   "name" : "Titeuf",
+                   "description" : "Comic book by Zep in 2006",
+                   "lat" : 50.8700844057,
+                   "lon" : 4.34397697449,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/66d5e70c12f5dbc34f713095b95dd680"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02vkkxq",
+                   "wikimedia" : "Q174874"
+                 }
+             ,
+              {
+                   "id" : "zidrou_52",
+                   "name" : "Tour à Plomb - Hageltoren",
+                   "description" : "Comic book by Zidrou in 2018",
+                   "lat" : 50.847841,
+                   "lon" : 4.3395,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/65c775fbec53e1c8794fc20870704f19"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "zidrou_52"
+                 }
+             ,
+              {
+                   "id" : "Q3514647",
+                   "name" : "Tamara",
+                   "description" : "Comic book by Zidrou  and  Christian Darasse in 2019",
+                   "lat" : 50.882038,
+                   "lon" : 4.344161,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/d7bd550db28757dde44b72b246ba496d"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q3514647"
+                 }
+             ,
+              {
+                   "id" : "Q657101",
+                   "name" : "Spirou - Robbedoes",
+                   "description" : "Comic book by Yoann  and  Vehlmann in 2014",
+                   "lat" : 50.8380325,
+                   "lon" : 4.3505493,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/646b7ee24dc51c7a259cc3805761c740"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02pksxx",
+                   "wikimedia" : "Q657101"
+                 }
+             ,
+              {
+                   "id" : "herman_55",
+                   "name" : "Les rêves de Nick - De dromen van Nick",
+                   "description" : "Comic book by Herman in 1999",
+                   "lat" : 50.8487651682,
+                   "lon" : 4.3412733078,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/24d46d0b335d3ab1e4cd1c1330aa6847"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "herman_55"
+                 }
+             ,
+              {
+                   "id" : "jouvray_56",
+                   "name" : "Lincoln",
+                   "description" : "Comic book by Jouvray in 2006",
+                   "lat" : 50.8772608627,
+                   "lon" : 4.35940504074,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/6ea041f139a8d1aecd292d2a096390d9"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "jouvray_56"
+                 }
+             ,
+              {
+                   "id" : "Q137475",
+                   "name" : "Lucky Luke",
+                   "description" : "Comic book by Morris in 1993",
+                   "lat" : 50.8475,
+                   "lon" : 4.341417,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/073abc9ed347e5307221bdfa3cb5d7d3"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02nqg1",
+                   "wikimedia" : "Q137475"
+                 }
+             ,
+              {
+                   "id" : "Q280516",
+                   "name" : "Jommeke",
+                   "description" : "Comic book by Jef Nys in 2015",
+                   "lat" : 50.8746816,
+                   "lon" : 4.3482216,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/d4c52433b1680b675db0fe7b5f342853"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/06fy_j",
+                   "wikimedia" : "Q280516"
+                 }
+             ,
+              {
+                   "id" : "Q576968",
+                   "name" : "Néron - Nero",
+                   "description" : "Comic book by Marc Sleen in 1995",
+                   "lat" : 50.8477084341,
+                   "lon" : 4.34680938721,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/8f65fa6497c3597ce99fcfaed612d78a"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02626f",
+                   "wikimedia" : "Q576968"
+                 }
+             ,
+              {
+                   "id" : "Q2151630",
+                   "name" : "Ric Hochet - Rik Ringers",
+                   "description" : "Comic book by Tibet  and  Duchâteau in 1994",
+                   "lat" : 50.845838769,
+                   "lon" : 4.3479681015,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/ef94672e2e2b0afa1b490bba53924b52"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02qv0tz",
+                   "wikimedia" : "Q2151630"
+                 }
+             ,
+              {
+                   "id" : "Q744536",
+                   "name" : "Tintin - Kuifje",
+                   "description" : "Comic book by Hergé in 2005",
+                   "lat" : 50.845354,
+                   "lon" : 4.350344,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/85fd1c0942b2000b9cc73dd6a45a256c"],
+                   "type" : "comic book",
+                   "urls" : [ "https://www.comics.org/series/69/"],
+                   "freebase" : "/m/07py4",
+                   "wikimedia" : "Q744536",
+                   "favorite": true
+                 }
+             ,
+              {
+                   "id" : "Q1132728",
+                   "name" : "Cori",
+                   "description" : "Comic book by Bob de Moor in 1998",
+                   "lat" : 50.8482909956,
+                   "lon" : 4.3421959877,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/839bb292fee474d00aeb2ef03246f67b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q1132728"
+                 }
+             ,
+              {
+                   "id" : "Q1304462",
+                   "name" : "Gil Jourdan - Guus Slim",
+                   "description" : "Comic book by Maurice Tillieux in 2009",
+                   "lat" : 50.8772202443,
+                   "lon" : 4.34423446655,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/66010c38d42bc5b635042c556cbe1670"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/0fws4f",
+                   "wikimedia" : "Q1304462"
+                 }
+             ,
+              {
+                   "id" : "Q2594169",
+                   "name" : "Passe-moi l'ciel - Oh! Lieve Hemel",
+                   "description" : "Comic book by Stuff  and  Janry in 2002",
+                   "lat" : 50.8387322,
+                   "lon" : 4.3520306,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/c490bfe09d610f6d240208c3d5d24744"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q2594169"
+                 }
+             ,
+              {
+                   "id" : "Q59667",
+                   "name" : "Natacha - Natasja",
+                   "description" : "Comic book by François Walthéry in 2009",
+                   "lat" : 50.8789322,
+                   "lon" : 4.3467511,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/229fb060e02a6894c6aa3aadb541124a"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02pfy_f",
+                   "wikimedia" : "Q59667"
+                 }
+             ,
+              {
+                   "id" : "Q3089277",
+                   "name" : "Froud & Stouf",
+                   "description" : "Comic book by Jannin  and  Liberski in 2014",
+                   "lat" : 50.8440542,
+                   "lon" : 4.3455639,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/a08bed337c366def4f893c396d184ed3"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q3089277"
+                 }
+             ,
+              {
+                   "id" : "wauter_mannaert_68",
+                   "name" : "Yasmina",
+                   "description" : "Comic book by Wauter Mannaert in 2020",
+                   "lat" : 50.8913955688,
+                   "lon" : 4.41742181778,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/42f3d722a1ec6afad5da4a51117036dc"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "wauter_mannaert_68"
+                 }
+             ,
+              {
+                   "id" : "Q96216516",
+                   "name" : "Le Jeune Albert - De Jonge Albert",
+                   "description" : "Comic book by Yves Chaland in 2000",
+                   "lat" : 50.8433593148,
+                   "lon" : 4.35011386871,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/984c157dc73098683e21fd5dfc12ca6d"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q96216516"
+                 }
+             ,
+              {
+                   "id" : "Q96323298",
+                   "name" : "Cubitus - Dommel",
+                   "description" : "Comic book by Dupa in 1994",
+                   "lat" : 50.8527886675,
+                   "lon" : 4.34530735016,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/2a65374d1a867e6038f36451a204c0c8"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/0588sy",
+                   "wikimedia" : "Q96323298"
+                 }
+             ,
+              {
+                   "id" : "Q1702566",
+                   "name" : "Jojo",
+                   "description" : "Comic book by Geerts in 1996",
+                   "lat" : 50.8351206193,
+                   "lon" : 4.34547901154,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/e25a5c30e226d4977125534c9073bd02"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q1702566"
+                 }
+             ,
+              {
+                   "id" : "Q2020026",
+                   "name" : "Olivier Rameau - Roze Bottel",
+                   "description" : "Comic book by Dany in 1997",
+                   "lat" : 50.8450258477,
+                   "lon" : 4.34929847717,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/589cbaafea1952fdfd8589dc1a9b93a2"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q2020026"
+                 }
+             ,
+              {
+                   "id" : "Q945556",
+                   "name" : "Parchis",
+                   "description" : "Comic book by Peter Willems in 2016",
+                   "lat" : 50.87021,
+                   "lon" : 4.342756,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/d32283932643c2d0e762e48fd0cd5faa"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/01prd0",
+                   "wikimedia" : "Q945556"
+                 }
+             ,
+              {
+                   "id" : "Q1240821",
+                   "name" : "Bob & Bobette - Suske & Wiske (Spike & Suzy)",
+                   "description" : "Comic book by Willy Vandersteen in 1995",
+                   "lat" : 50.8546445081,
+                   "lon" : 4.35225963593,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/0c50f76c95b2c1aae66c784d6699147b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/02__j_",
+                   "wikimedia" : "Q1240821"
+                 }
+             ,
+              {
+                   "id" : "Q1501455",
+                   "name" : "Yoko Tsuno",
+                   "description" : "Comic book by Roger Leloup in 2011",
+                   "lat" : 50.8425826,
+                   "lon" : 4.3474095,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/21bee449a32835b2947a19d4bc7fb047"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/03949y",
+                   "wikimedia" : "Q1501455"
+                 }
+             ,
+              {
+                   "id" : "juliette_boutant__76",
+                   "name" : "Crocodiles - Krokodillen",
+                   "description" : "Comic book by Juliette Boutant  and  Thomas Mathieu in 2020",
+                   "lat" : 50.8522510917,
+                   "lon" : 4.35844043349,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/b74266cb4193ee1317949f86098da0bc"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "juliette_boutant__76"
+                 }
+             ,
+              {
+                   "id" : "Q2688864",
+                   "name" : "Monsieur Jean - Meneer Johan",
+                   "description" : "Comic book by Dupuy  and  Berberian in 2002",
+                   "lat" : 50.8444432454,
+                   "lon" : 4.34818267822,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/96985e8c9cc339e97ed1b9fceed8735b"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q2688864"
+                 }
+             ,
+              {
+                   "id" : "Q13743670",
+                   "name" : "Kinky & Cosy",
+                   "description" : "Comic book by Nix in 2016",
+                   "lat" : 50.844758,
+                   "lon" : 4.347687,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/d512e017c66625007a05dff9a1ad2839"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q13743670"
+                 }
+             ,
+              {
+                   "id" : "Q1479491",
+                   "name" : "XIII",
+                   "description" : "Comic book by William Vance  and  Jean Van Hamme in 2010",
+                   "lat" : 50.8430806,
+                   "lon" : 4.3483808,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/5828e24d9a81f95a07fb8e7eb9aa0391"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : "/m/03k751",
+                   "wikimedia" : "Q1479491"
+                 }
+             ,
+              {
+                   "id" : "Q3557562",
+                   "name" : "Victor Sackville",
+                   "description" : "Comic book by Carin in 2002",
+                   "lat" : 50.8461097396,
+                   "lon" : 4.34876203537,
+                   "images" : ["https://opendata.bruxelles.be/api/v2/catalog/datasets/comic-book-route/files/c96238e6e47224a54ba79ec629debc6c"],
+                   "type" : "comic book",
+                   "urls" : [ ],
+                   "freebase" : null,
+                   "wikimedia" : "Q3557562"
+                 }
+             
+               ]            
+          
+      }
+  }
+}

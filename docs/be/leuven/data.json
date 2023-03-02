@@ -1,0 +1,783 @@
+{
+    "meta": {
+        "app_id": "es.espinr.leuven",
+        "app_title": "LVN Street Heritage",
+        "version": 25,
+        "updated": "2022-09-30",
+        "source_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/data.json",
+        "matomo_base_url": "https://matomo.pbest.me/matomo.php?idsite=1&rec=1",
+        "marketplace_url": "https://appgallery.huawei.com/app/C105790639"
+    },
+    "content": {
+        "en": {
+            "app": {
+                "theme": {
+                    "brand": "#EA3556",
+                    "complementary": "#FAFAFA"
+                },
+                "repository_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/tree/main/docs/be/leuven",
+                "text_info": "This app is created by local experts, so it is not official. As you can see, it's also free of charge. Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures.",
+                "text_acknowledge": "This quick app is an open-source project powered by open data and enriched by the community. Most of the information was extracted from Wikidata, OpenStreetMaps, and other public sources. You can find inaccuracies, so we apologize in advance.",
+                "text_feedback": "Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures. This app is created by locals and experts.",
+                "feedback_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/#get-involved",
+                "issue_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/issues/new?labels=be/leuven&template=update_request.md&title=Update+request+of+"
+            },
+            "pois": [{
+                    "id": "3701660486",
+                    "lat": "50.8789629",
+                    "lon": "4.7013242",
+                    "type": "statue",
+                    "name": "Pieter Coutereel",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3701660486.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3701660486_2.jpg"
+                    ],
+                    "description": "Pieter Couterel (1320-1373), mayor of Louvain",
+                    "more": "Pieter Couterel (also 'Pe(e)ter' or 'Pierre', surname also 'Cotterel', 'Coutreel', 'Cout(h)ereel' or 'Koutereel'), meier of Louvain from 1348. Although not of nobility or particularly wealthy, he was nevertheless appointed to this high post by Duke John III of Brabant.",
+                    "attributions": [], 
+                    "wikidata": "Q2094242",
+                    "tourism": "artwork"
+                },
+                {
+                    "id": "1400871347",
+                    "lat": "50.8784621",
+                    "lon": "4.6997028",
+                    "type": "statue",
+                    "name": "De Kotmadam",
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/De_Kotmadam_(Leuven)"
+                    ],
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1400871347.jpg"
+                    ],
+                    "description": "Lady running a kot, a typical type of student residence in Leuven",
+                    "more": "The statue, by Fred Bellefroid, was inaugurated on May 16, 1985. It was a gift from the tourist office to the city of Leuven (worth 800,000 Bfr), but an original idea of ​​the Marktrock committee. The inauguration was attended by Maria Swerts, the then oldest Leuven kotmadam and godmother of the statue. Despite the amusing nature of the image, the Kotmadam initially evoked mixed feelings. For example, the figure depicted did not correspond to the typical image of a kotmadam: old and slender. On the contrary, the kotmadam on the Oude Markt is a young, attractive lady."
+                },
+                {
+                    "id": "2346968384",
+                    "lat": "50.8793003",
+                    "lon": "4.7023013",
+                    "amenity": "fountain",
+                    "artist_name": "Jef Claerhout",
+                    "type": "sculpture",
+                    "name": "Fonske",
+                    "start_date": "1975",
+                    "wikidata": "Q2107804",
+                    "description": "Het Fonske -Fons Sapientiae, Latin for Source of Wisdom-",
+                    "more": "Het Fonske is one of the works of Jef Claerhout and was donated to the city in 1975 on the occasion of the 550th anniversary of the Catholic University of Leuven.",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2346968384_4.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2346968384.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2346968384_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2346968384_3.jpg"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "2507985861",
+                    "lat": "50.8800037",
+                    "lon": "4.6985203",
+                    "alt_name": "Paep Thoon",
+                    "artist_name": "Peter Vanbekbergen",
+                    "artist:wikidata": "Q15983804",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2507985861.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2507985861_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2507985861_3.jpg"
+                    ],
+                    "description": "Paep(e) Thoon was a folk figure in Leuven in the Burgundian Netherlands during the Middle Ages.",
+                    "more": "From Leuven in the 15th century, numerous stories circulate about this figure",
+                    "name": "Paepe Thoon",
+                    "urls": ["https://nl.wikipedia.org/wiki/Paep_Thoon"]
+                },
+                {
+                    "id": "2967726382",
+                    "lat": "50.8803004",
+                    "lon": "4.7003536",
+                    "type": "statue",
+                    "name": "Erasmus",
+                    "description": "Statue by René Rosseel that represents the scholar and humanist Erasmus (1467-1536), lecturer at the University of Leuven",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2967726382.jpg",
+                        "https://3.bp.blogspot.com/-Mr3HG35q7Ck/UOsYz3jXTBI/AAAAAAAAJ2M/rCCP3XOs3i0/s1600/P1070850_2.jpg"
+                    ]
+                },
+                {
+                    "id": "3100608422",
+                    "lat": "50.8800008",
+                    "lon": "4.7032228",
+                    "artist_name": "Roland Rens",
+                    "type": "sculpture",
+                    "material": "bronze",
+                    "name": "Dorre de Bakker",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3100608422.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3100608422_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3100608422_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3100608422_4.jpg"
+                    ],
+                    "description": "Bronze statue by Roland Rens, donated by the Leuven Association of Bread and Pastry Bakers in 1979.",
+                    "year": "1979"
+                },
+                {
+                    "id": "1150903685",
+                    "lat": "50.8800159",
+                    "lon": "4.7011793",
+                    "name": "Vrijheidsboom",
+                    "type": "tree",
+                    "description": "Freedom tree planted when the Belgian Revolution started in 1830",
+                    "more": "The Belgian Revolution was the conflict which led to the secession of the southern provinces (former Southern Netherlands) from the United Kingdom of the Netherlands and the establishment of an independent Kingdom of Belgium. Leuven was briefly besieged by the regular Dutch troops on September 23, but with the help of farmers from the area they were driven out.",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1150903685_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1150903685.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1150903685_2.jpg"
+                    ],
+                    "wikipedia": "nl:Geschiedenis van Leuven#Het_Verenigd_Koninkrijk_der_Nederlanden_(1815_-_1830)"
+                },
+                {
+                    "id": "oeratoom",
+                    "name": "Oeratoom (Primeval Atom)",
+                    "description": "Artwork across the city center, based on the Georges Lemaître's Big Bang theory.",
+                    "more": "The Primordial Atom, based on the Big Bang theory, written in Leuven by Professor Georges Lemaître. This revolutionary theory was issued in 1931 at the University of Leuven. As a tribute, there is a new city artwork. It is called 'Oer Atom' and it transforms the inner city into a universe. From now on you will find galaxies between the street tiles and 1 meter is equal to 10 million light years. Walk through the city and experience the wonder of the universe with a work of art that only belongs in Leuven.",
+                    "type": "big bang",
+                    "year": "2022",
+                    "lat": "50.879103",
+                    "lon": "4.702148",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/oeratoom.jpg"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "dodoens",
+                    "name": "Rembert Dodoens",
+                    "description": "Rembert Dodoens was a Flemish physician and botanist, considered the father of botany",
+                    "more": "Statue in the Botanical Garden remmembering Rembert Dodoens (born Rembert Van Joenckema, 29 June 1517 – 10 March 1585), also known under his Latinized name Rembertus Dodonaeus.",
+                    "type": "statue",
+                    "year": "2017",
+                    "lat": "50.877965",
+                    "lon": "4.690387",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/dodoens.jpg"
+                    ]
+                },
+                {
+                    "id": "3101985193",
+                    "lat": "50.8803605",
+                    "lon": "4.7004394",
+                    "name": "Middelpunt",
+                    "type": "milestone",
+                    "description": "Center of the City of Leuven, from 1975, when pedestrian Mechelsestraat was opened",
+                    "more": "According to a photo from 1864, the landmark stone used to be located on the Zeven Hoeken (today Mathieu De Layensplein)",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3101985193_0.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3101985193.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/3101985193_2.jpg"
+                    ],
+                    "tourism": "attraction"
+                },
+                {
+                    "id": "2675664649",
+                    "lat": "50.8786637",
+                    "lon": "4.6998924",
+                    "addr:city": "Leuven",
+                    "addr:street": "Oude Markt",
+                    "heritage": "4",
+                    "heritage:operator": "OnroerendErfgoed",
+                    "heritage:website": "https://inventaris.onroerenderfgoed.be/dibe/relict/87632",
+                    "type": "water well",
+                    "name": "Sint-Janspomp",
+                    "description": "The Sint-Janspomp, named after Sint-Jansbron that traditionally supplied the neighborhood with drinking water",
+                    "more": "It's dated in 1856 and replaced an older pump from 1702.",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2675664649.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/2675664649_1.jpg"
+                    ],
+                    "OnroerendErfgoed:criteria": "M",
+                    "pump": "manual",
+                    "ref:OnroerendErfgoed": "87632",
+                    "wikidata": "Q47546694"
+                },
+                {
+                    "id": "koeieschieter",
+                    "name": "De Koeieschieter",
+                    "description": "De Koeieschieter, or cow shooter, is one nickname of the people of Leuven",
+                    "more": "A folk tale mentions that during one night in 1691, the people of Leuven saw all kinds of suspicious movements in the dark. They thought they were being attacked by the French, so they opened fire. The next morning it turned out that they had only killed cows. This 'heroic' act earned the Leuven resident the nickname Cow Shooters",
+                    "lat": "50.882391",
+                    "lon": "4.686552",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/koeieschieter.jpg"
+                    ]
+                },
+                {
+                    "id": "odeaandevriendshap",
+                    "name": "Ode to friendship",
+                    "description": "Statue built by Dany Tulkens in 1988, as a gift to the city from Verbond der Jaartallen",
+                    "more": "The statue stood on Herbert Hooverplein for almost 30 years",
+                    "lat": "50.88215954173958",
+                    "lon": "4.71416885170128",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/odeaandevriendshap.jpg"
+                    ],
+                    "type": "statue"
+                },
+                {
+                    "id": "justolipsio",
+                    "name": "Justo Lipsio",
+                    "description": "Justus Lipsius (or Joest Lips) (1547-1606), humanist and Latin Professor at the University of Leuven.",
+                    "more": "He was one of the most famous scholars of the 16 century",
+                    "type": "statue",
+                    "lat": "50.88031341990272",
+                    "lon": "4.709960116983157",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/justolipsio.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/justolipsio_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/justolipsio_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/justolipsio_4.jpg"
+                    ]
+                },
+                {
+                    "id": "thetotem",
+                    "name": "The Totem",
+                    "description": "The Beetle's Totem, by Jan Fabre",
+                    "more": "Built in 2005 to celebrate the 575th anniversary of KU Leuven. According to the creator, the combination of a surreal installation with the classic university library building reflects the character of the city and its most important university.",
+                    "lat": "50.87863193778807",
+                    "lon": "4.706343847068684",
+                    "type": "totem",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/thetotem.jpg"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "1914",
+                    "name": "1914 Plaque",
+                    "description": "A sword, flames and coat arms (symbolizing the rebuilt after the Great War)",
+                    "more": "You can find these plaques on several building facades in the area",
+                    "type": "plaque",
+                    "lat": "50.879317087169646",
+                    "lon": "4.70039495861867",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1914.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/1914_2.jpg"
+                    ]
+                },
+                {
+                    "id": "fieremargriet",
+                    "name": "Fiere Margriet",
+                    "description": "Margaret of Louvain (1207–1225) was a servant murdered by thieves",
+                    "more": "As a teenager, she worked at the inn belonging to her relatives, a certain Aubert and his wife, until they sold the establishment. The couple had planned to enter the religious life, with Margaret herself set on joining a Cistercian convent.",
+                    "lat": "50.881398607562886",
+                    "lon": "4.696941725940583",
+                    "type": "statue",
+                    "urls": [
+                        "https://en.wikipedia.org/wiki/Margaret_of_Louvain"
+                    ],
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/fieremargriet.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/fieremargriet_2.jpg"
+                    ]
+                },
+                {
+                    "id": "vredesmonument",
+                    "name": "Vredesmonument",
+                    "description": "(Peace Memorial) Memorial to the First World War victims",
+                    "more": "This obelisk dates from 1925, but was destroyed by the German occupiers during the Second World War in 1940. In 2004, the city of Leuven restored the monument.",
+                    "lat": "50.88125351740679",
+                    "lon": "4.714840098741622",
+                    "type": "obelisk",
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Martelarenplein_(Leuven)"
+                    ],
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/vredesmonument_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/vredesmonument_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/vredesmonument.jpg"
+                    ]
+                },
+                {
+                    "id": "veuster",
+                    "name": "Jozef De Veuster",
+                    "description": "(Pater Damiaan) (1840-1889), Father of the Congregation of the Sacred Hearts of Jesus and Maria",
+                    "more": "Damien of Molokai, missionary, become known for his work with leprosy patients. He is the patron saint of lepers and AIDS patients. Statue built in 1894",
+                    "lat": "50.8807662901906",
+                    "lon": "4.691515976548804",
+                    "type": "statue",
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Pater_Damiaan",
+                        "https://be-monumen.be/patrimoine-belge/monument-au-pere-damien-leuven-louvain/"
+                    ],
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/veuster.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/veuster_2.jpg"
+                    ]
+                },
+                {
+                    "id": "remy",
+                    "name": "Edouard Remy",
+                    "description": "Socially committed entrepreneur of the 19th century.",
+                    "more": "Remy employed hundreds of people in his rice and starch factory in Wijgmaal (part of Louvain). Sculpture designed by Victor Horta (1861-1947) and built by Pieter Braecke.  Innaugurated in 1899.",
+                    "lat": "50.87733503330923",
+                    "lon": "4.7063321518844985",
+                    "type": "statue",
+                    "urls": [
+                        "https://be-monumen.be/patrimoine-belge/monument-a-edouard-remy-leuven-louvain/"
+                    ],
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/remy.jpg"
+                    ]
+                },
+                {
+                    "id": "renee",
+                    "name": "Renée",
+                    "description": "Renée represents the active female students in Leuven",
+                    "more": "By Armand Loveniers. The sculpture was donated in 1997 by the Merchants Association. The actual initiator was René Depret, honorary citizen of the city of Leuven, which gives its name to the statue.",
+                    "lat": "50.87627216832051",
+                    "lon": "4.700506783281522",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/renee.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/renee_2.jpg"
+                    ]
+                },
+                {
+                    "id": "geluksbrenger",
+                    "name": "Geluksbrenger",
+                    "description": "The Dijle duck is a lucky charm and helps to make a wish when you drink the water",
+                    "more": "Rub the duck three times on the tail to get water",
+                    "lat": "50.87513338085576",
+                    "lon": "4.696445113665215",
+                    "type": "fountain",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/geluksbrenger.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/geluksbrenger_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/geluksbrenger_3.jpg"
+                    ]
+                },
+                {
+                    "id": "dumont",
+                    "name": "Andre Dumont",
+                    "description": "1847-1920. He discovered coal in Campine in 1901",
+                    "more": "",
+                    "lat": "50.877383241959095",
+                    "lon": "4.702055116282056",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/dumont.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/dumont_2.jpg"
+                    ]
+                },
+                {
+                    "id": "somer",
+                    "name": "Pieter de Somer",
+                    "description": "(1966-1985) The first Rector of the University, biologist",
+                    "more": "Founder of the Rega Institute",
+                    "lat": "50.87624096643521",
+                    "lon": "4.70274233127326",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/somer.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/somer_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/somer_3.jpg"
+                    ]
+                },
+                {
+                    "id": "60men",
+                    "name": "Kamerood Sesteg",
+                    "description": "Statue Was donated by the 'Men of 60' to the City of Leuven in 2000",
+                    "more": "By Eremarraine Wendy Van Wanten and Christian Smets",
+                    "lat": "50.87543972246198",
+                    "lon": "4.703254725859783",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/60men.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/60men_2.jpg"
+                    ]
+                },
+                {
+                    "id": "abraham",
+                    "name": "Abraham",
+                    "description": "A wise Abraham knows where to look for the mustard (a sign of wisdom)",
+                    "more": "Abraham is how men are called in Leuven after their 50s, and 'knowing where to look for mustard' is a sign of wisdom.",
+                    "lat": "50.876666946227886",
+                    "lon": "4.705868517952187",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/abraham.jpg"
+                    ]
+                },
+                {
+                    "id": "mariabeeld",
+                    "name": "Mariabeeld",
+                    "description": "Virgin Mary over the wall of the former Duke of Brabant's castle",
+                    "more": "The old castle wall is of historical importance, because it is the only remnant of the lost castle of the Duke of Brabant. The military checkpoint on Keizersberg was modeled on the castles seen by the Duke on his crusades, and is believed to have been built in the 13th century. The City of Leuven took the Keizersberg park on a long lease in 2011 and opened it up to the public as the green lung of the Vaartkom.",
+                    "lat": "50.88767744338133",
+                    "lon": "4.696558732356493",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/mariabeeld.jpg"
+                    ]
+                },
+                {
+                    "id": "kartuizerpomp",
+                    "name": "Kartuizerpomp",
+                    "description": "Carthusian pump, that originally stood in the Carthusian monastery of Leuven",
+                    "more": "In 1799, the city council had the water pump moved to its current location, in the middle of the city.",
+                    "lat": "50.88767744338133",
+                    "lon": "4.696558732356493",
+                    "type": "water well",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuizerpomp.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuizerpomp_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuizerpomp_3.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Kartuizerpomp"
+                    ]
+                },
+                {
+                    "id": "kattenpomp",
+                    "name": "Kattenpomp",
+                    "description": "Cattenpomp or De Gulden Fonteyne water pump, dated from 1729.",
+                    "more": "On one side of the pump there is a sign with the text: Get two buckets of water, two buckets pumps, the girls with their clogs, the girls from the kattestraat..., which is a variant of the Flemish folk song Get two buckets of water.",
+                    "lat": "50.877133059709905",
+                    "lon": "4.704666713785677",
+                    "type": "water well",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kattenpomp.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kattenpomp_2.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Kattenpomp"
+                    ]
+                },
+                {
+                    "id": "hooverplein",
+                    "name": "Hooverplein",
+                    "description": "Water fountain that re-visualize Leuven's historic city walls throughout the city",
+                    "more": "The fountain is shaped like the street plan of Leuven, as Jacob van Deventer, the famous Dutch cartographer, drew it in 1550.",
+                    "lat": "50.87738891081427",
+                    "lon": "4.706129101780469",
+                    "type": "fountain",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/hooverplein.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Herbert_Hooverplein"
+                    ]
+                },
+                {
+                    "id": "vandeweerstand",
+                    "name": "Van de Weerstand",
+                    "description": "National monument that commemorates the resistance in Belgium in the Second World War",
+                    "more": "",
+                    "lat": "50.88110288199442",
+                    "lon": "4.697357757527114",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/vandeweerstand.jpg"
+                    ],
+                    "urls": [
+                        "https://www.tracesofwar.nl/sights/45640/Nationaal-Monument-van-de-Weerstand.htm"
+                    ]
+                },
+                {
+                    "id": "albert",
+                    "name": "King Albert I",
+                    "description": "King Albert I, supreme commander of the Belgian Army in the First World War.",
+                    "more": "",
+                    "lat": "50.88138748937468",
+                    "lon": "4.697538194311103",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/albert_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/albert.jpg"
+                    ],
+                    "urls": [
+                        "https://www.tracesofwar.com/sights/106818/Memorial-King-Albert-I.htm"
+                    ]
+                },
+                {
+                    "id": "europa",
+                    "name": "De ontvoering van Europa",
+                    "description": "The Abduction of Europe represents the god Zeus (as a bull), who kidnaps Europa",
+                    "more": "This is a famous scene from Greek mythology that was also immortalized on canvas by Rubens and Moreau. It was made by the sculptor Rik Poot.",
+                    "lat": "50.877634075090526",
+                    "lon": "4.716435766667093",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/europa.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/europa_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/europa_3.jpg"
+                    ],
+                    "urls": [
+                        "http://leveninleuven.be/2008/03/20/inhuldiging-de-ontvoering-van-europa/"
+                    ]
+                },
+                {
+                    "id": "jacobspomp",
+                    "name": "Sint-Jacobspomp",
+                    "description": "Public pump from the 18th Century",
+                    "more": "Placed in the Sint-Hubertusstraat, near the Sint-Jacobsmarkt and the Sint-Jacobskerk (church). It has two pump iron arms. At the top there is a niche, in which there used to be a statue of Saint James. A lantern hangs in front of the niche. The pump has been a protected heritage site since 1995.",
+                    "lat": "50.879505141005936",
+                    "lon": "4.689427215912153",
+                    "type": "water well",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/jacobspomp_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/jacobspomp_4.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/jacobspomp_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/jacobspomp.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Sint-Jacobspomp"
+                    ]
+                },
+                {
+                    "id": "astrolabe",
+                    "name": "Kangxi Hemelglobe",
+                    "description": "Functional Chinese Astrolabe engraved with 1.888 stars and celestial bodies",
+                    "more": "This bronze globe weighs 3.850 kg and is 2.76 metres high. The celestial bodies included were known at the end of the 17th century. The celestial globe is an exact replica of the instrument that Jesuit Ferdinand Verbiest drew at the imperial court in China in 1673.",
+                    "lat": "50.87525674044207",
+                    "lon": "4.700880771666212",
+                    "type": "astrolabe",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe_4.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe_5.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/astrolabe_6.jpg"
+                    ],
+                    "urls": [
+                        "http://2020group1.onlinepublishing.ulyssis.be/kangxi-hemelglobe-atrechtcollege"
+                    ]
+                },
+                {
+                    "id": "bibliotheektoren",
+                    "name": "Universiteitsbibliotheken",
+                    "description": "The University Library built between 1921 and 1928, a gift from the American people to the city and to KU Leuven",
+                    "more": "The building's 87-meters-high tower, inspired by the Giralda of Seville, contains one of the largest carillons in Europe, presented in 1928 by American engineers to commemorate their colleagues who fell during the First World War. The carillon had 48 bells, according to the number of US states. The 7-ton bass bell, which also strikes the hour, bears the name Liberty Bell of Louvain and the fourth bell bears an inscription calling for peace.",
+                    "lat": "50.878213321118245",
+                    "lon": "4.707232213679867",
+                    "type": "library",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/bibliotheektoren.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Leuvense_universiteitsbibliotheken"
+                    ]
+                },
+                {
+                    "id": "kleinbegijnhof",
+                    "name": "Klein Begijnhof",
+                    "description": "Small Beguinage, neighborhood inhabited by beguines until the 19th century near the Sint-Geertrui abbey",
+                    "more": "The Small Beguinage is sometimes also referred to as the Old Beguinage. The word old would not mean that this beguinage is older than the others, but that this beguinage had fewer financial resources than its large counterpart, which meant that the buildings fell into a dilapidated state more quickly.",
+                    "lat": "50.88495887442341",
+                    "lon": "4.69900165171082",
+                    "type": "beguinage",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kleinbegijnhof_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kleinbegijnhof.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kleinbegijnhof_3.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Klein_Begijnhof_Leuven"
+                    ]
+                },
+                {
+                    "id": "grootbegijnhof",
+                    "name": "Groot Begijnhof",
+                    "description": "Beguinage established in the early 13th century as a community for unmarried, semi-religious women (beguines)",
+                    "more": "The oldest written documents date from 1232. The Groot Begijnhof van Leuven, also known as Begijnhof Ten Hove, is composed of ten streets in the south of the city center, located on the Schapenstraat, not far from the Porte de Namur. It is one of the largest surviving beguinages in Flanders, with a built-up area of approximately 3 ha. The Dyle flows straight through the courtyard and splits into two arms (plus a connecting ditch), over which there are a total of three bridges.",
+                    "lat": "50.87218971313542",
+                    "lon": "4.697245106923151",
+                    "type": "beguinage",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/grootbegijnhof_4.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/grootbegijnhof_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/grootbegijnhof.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/grootbegijnhof_2.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Groot_Begijnhof_Leuven"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "sintgeertruikerk",
+                    "name": "Sint-Geertrui Abbey",
+                    "description": "Sint-Geertrui Abbey was a wealthy abbey of Canons Regular of Saint Augustine,founded by Hendrik I of Brabant in 1206",
+                    "more": "The abbey owned numerous lands and farms. Within the Leuven ramparts she owned vineyards with an associated winepress house that still exists. The Sint-Geertruisluis was one of the water gates of Leuven. The Klein Begijnhof arose in the shadow of the abbey, probably as a community of working sisters in the abbey. It is certain that the Beguinage was still parochially dependent on the abbey until the 17th century.",
+                    "lat": "50.884258469534835",
+                    "lon": "4.699044868925404",
+                    "type": "abbey",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintgeertruikerk.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintgeertruikerk_2.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Sint-Geertrui-abdij"
+                    ]
+                },
+                {
+                    "id": "sintjacobuskerk",
+                    "name": "Sint-Jacobskerk",
+                    "description": "The Church of St. James is built in Romanesque style and was built between 1220 and 1235",
+                    "more": "Since 1290, only the tower remains of this original church, which is part of the Seven Wonders of Leuven. A new nave was erected on the tower between 1290 and 1300. The church closed its doors in 1964 due to stability problems and has been empty ever since.",
+                    "lat": "50.88057064201929",
+                    "lon": "4.690944516086574",
+                    "type": "church",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintjacobuskerk.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Leuven)"
+                    ]
+                },
+                {
+                    "id": "sintpieterskerk",
+                    "name": "Sint-Pieterskerk",
+                    "description": "Saint Peter's Church, a Roman Catholic church built in the style of the Brabantine Gothic",
+                    "more": "The church building was worked on in the course of the 15th century by some famous late Gothic master builders, including Sulpitius van Vorst, Jan II Keldermans and Matthijs de Layens. Although the church was built until the 17th century, St. Peter's Church remained unfinished; the two west towers in particular never reached their full height.",
+                    "lat": "50.88000051413816",
+                    "lon": "4.700586326378258",
+                    "type": "church",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk_4.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk_5.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk_6.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintpieterskerk.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Sint-Pieterskerk_(Leuven)"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "stadhuis",
+                    "name": "Stadhuis",
+                    "description": "Leuven's Town Hall, Gothic building located on the Grote Markt in Leuven",
+                    "more": "The plans for the town hall of Leuven are based and inspired by the town hall of Bruges. The town hall has three floors. There are two niches between the windows, which protrude slightly. Three of the four corner towers also have niches. The corbels are carved scenes from the Bible . The recurring topic is guilt and penance.",
+                    "lat": "50.87912487363574",
+                    "lon": "4.70129000323443",
+                    "type": "town hall",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/stadhuis.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/stadhuis_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/stadhuis_3.jpg"
+                    ],
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/Stadhuis_van_Leuven"
+                    ],
+                    "favorite": true
+                },
+                {
+                    "id": "borchtpoort",
+                    "name": "Borchtpoort",
+                    "description": "City gate from the 12th century, part of the old city walls of Leuven",
+                    "more": "The Borchtpoort was formerly used as a gate and prison. In the 18th century the building was no longer used and was therefore demolished. These are the oldest stone remains ever found in Leuven.",
+                    "lat": "50.88287605045445",
+                    "lon": "4.69838019119763",
+                    "type": "city gate",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/borchtpoort.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/borchtpoort_2.jpg"
+                    ],
+                    "urls": [
+                        "https://www.vrt.be/vrtnws/nl/2019/02/05/oude-leuvense-stadsomwalling-gevonden/"
+                    ]
+                },
+                {
+                    "id": "sintkwintenskerk",
+                    "name": "Sint-Kwintenskerk",
+                    "description": "Saint Quentin's Church from 1450, in Brabant High Gothic style",
+                    "more": "The interior contains Baroque choir stalls and altars. The church is named after the Saint Quentin, who is regarded in the Catholic faith as a protector against a wide range of contagious diseases.",
+                    "lat": "50.87008795929545",
+                    "lon": "4.6989023098413485",
+                    "type": "church",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintkwintenskerk_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintkwintenskerk.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/sintkwintenskerk_2.jpg"
+                    ],
+                    "urls": [
+                        "https://en.wikipedia.org/wiki/Saint_Quentin%27s_Church",
+                        "https://nl.wikipedia.org/wiki/Sint-Kwintenskerk_(Leuven)"
+                    ]
+                },
+                {
+                    "id": "urinals",
+                    "name": "Pissijnen",
+                    "description": "Public urinals, popular in the 19th century",
+                    "more": "Leuvense pissijnen (public urinals). The city council usually had them in crowded places. Not everyone was happy with these public urinals because they stank and caused moisture problems. After protest actions and trials in court, they disappeared from the streets. These urinals next to the Klein Begijnhof are the only ones preserved in Leuven.",
+                    "lat": "50.884336",
+                    "lon": "4.699100",
+                    "type": "urinals",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/urinals_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/urinals_0.jpg"
+                    ],
+                    "urls": [
+                    ]
+                },
+                {
+                    "id": "kartuis",
+                    "name": "Kartuis",
+                    "description": "16th century Carthusian Priory founded in 1489 that was used as Capuchin monastery in the 20th century.",
+                    "more": "It was purchased by the KU Leuven in 2005.",
+                    "lat": "50.875870",
+                    "lon": "4.687458",
+                    "type": "priory",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_7.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_5.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_0.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_6.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_2.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_3.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/kartuis_4.jpg"
+                    ],
+                    "urls": [
+                    ]
+                },
+                {
+                    "id": "dewitte",
+                    "name": "De Witte",
+                    "description": "De Witte is a character from Ernest Claes' De Witte novel",
+                    "more": "Louis Verheyden, nicknamed De Witte, goes to school but is not really a good student. The statue of De Witte is portrayed as a mischievous barefooted rascal who looks up at the faculty of arts.",
+                    "lat": "50.877526",
+                    "lon": "4.708749",
+                    "type": "statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/dewitte.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/dewitte_02.jpg"
+                    ],
+                    "urls": [
+                        "https://catchysights.com/blogs/news/de-witte"
+                    ]
+                },
+                {
+                    "id": "bell",
+                    "name": "Michaux foundry bell",
+                    "description": "Facing stone from the former bell foundry Michaux (Diestsevest)",
+                    "more": "Sandstone from the 19th century (fourth quarter) with the inscription O. MICHAUX. It is a gift from KBC Verzekeringen.",
+                    "lat": "50.877399215643116",
+                    "lon": "4.709040923685559",
+                    "type": "facing stone",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/bell_02.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/bell.jpg"
+                    ],
+                    "urls": [
+                        "https://blendeff.be/nl/item/B284"
+                    ]
+                }                          
+            ]
+        }
+    }
+}

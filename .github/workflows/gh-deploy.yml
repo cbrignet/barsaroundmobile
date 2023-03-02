@@ -1,0 +1,36 @@
+name: JSON check + push to gh-pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+  validate-json-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: vanekj/validate-json-action@v1.0.0
+        with:
+          schema: docs/schema.json
+          pattern: docs/*/**/*.json
+
+  gh-pages-deploy:
+      name: Deploying to gh-pages
+      needs: [validate-json-files]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout branch
+          uses: actions/checkout@v2
+          env:
+            ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'      
+        - name: deploy
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            personal_token: ${{ secrets.ACCESS_TOKEN }}
+            publish_dir: ./docs
+            commit_message: ${{ github.event.head_commit.message }}
+            enable_jekyll: true
+          env:
+            ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'

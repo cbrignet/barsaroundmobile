@@ -1,0 +1,27 @@
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type"].value)}},
+      "lon" : {{jsonize(cells["lon"].value)}},
+      "lat" : {{jsonize(cells["lat"].value)}},
+      "name" : {{jsonize(cells["title"].value)}},
+      "description" : {{jsonize(cells["description"].value)}},
+      "more" : {{jsonize(cells["more"].value)}},
+      "images" : [{{ if(cells["images"].value!=null, jsonize(cells["images"].value), '') }}],
+      "attributions": ["Paris Data", "Direction de l'Attractivité et de l'Emploi - Ville de Paris" ],
+      "wikidata" : {{ if(cells["wikidata"].value!=null, jsonize(cells["wikidata"].value), '""') }},
+      "urls": []
+    }
+
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type_fr"].value)}},
+      "lon" : {{jsonize(cells["lon"].value)}},
+      "lat" : {{jsonize(cells["lat"].value)}},
+      "name" : {{jsonize(cells["title"].value)}},
+      "description" : {{jsonize(cells["description_fr"].value)}},
+      "more" : {{jsonize(cells["more_fr"].value)}},
+      "images" : [{{ if(cells["images"].value!=null, jsonize(cells["images"].value), '') }}],
+      "attributions": ["Paris Data", "Direction de l'Attractivité et de l'Emploi - Ville de Paris" ],
+      "wikidata" : {{ if(cells["wikidata"].value!=null, jsonize(cells["wikidata"].value), '""') }},
+      "urls": []
+    }

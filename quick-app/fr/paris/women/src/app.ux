@@ -1,0 +1,352 @@
+<script>
+/**
+ * @desc: Application-level configurations and methods are shared by all pages.
+ */
+import fetch from '@system.fetch'
+import configuration from '@system.configuration'
+import device from '@system.device'
+import cipher from '@system.cipher'  
+import geolocation from '@system.geolocation'
+import prompt from '@system.prompt'
+import storage from '@system.storage'
+import push from '@service.push'
+import router from '@system.router';
+
+// URL for the Maps
+const mapBaseUrl = 'https://geojson.pbest.me'
+const markerIconColor = 'pale'
+
+// to enable async
+const injectRef = Object.getPrototypeOf(global) || global
+injectRef.regeneratorRuntime = require('@babel/runtime/regenerator')
+
+/* The main configuration and data resource */
+const data = require('./common/json/data.json')
+
+export default {
+  onCreate() {
+    // Setup the locale
+    this.locale = 'en'              // by default
+    this._setupLocale(data.content)  // Find the closest match based on the config file
+    
+    this._setupPushNotifications()  // Configure the push notifications
+    
+    // Initialize the data cached by the app
+    this.dataCache = {
+      meta: Object.assign({}, data.meta),
+      appInfo: Object.assign({}, data.content[this.locale].app),
+      pois: [].concat(data.content[this.locale].pois),
+      myCoordinates: { lat: 0, lon: 0},   // user's coordinates
+      globalMapURL: mapBaseUrl, 
+      userId: cipher.getRandomValues(8),
+      screenHeight: 2000,
+      likedIds: []
+    }
+    this.channel = new BroadcastChannel('updateChannel')
+    this._getLikedIdsFromStorage()
+      .then(() => this._getSwitchFavsSelectionFromStorage())
+      .then(() => this._updateDatabase())
+      .then(() => this.geolocateUser())
+      .then(() => this.generateMapUrl())
+      .then(() => {
+        // Notify all the components that the database is ready
+        this.channel.postMessage('ready')
+        console.info(`   ✔️ All set!`)
+        // launch a push notification in case it´s new database
+        this._storeLatestVersionUsed()
+      })
+    
+  },
+  onDestroy: function () {
+      this.channel.close()
+  },
+  /**
+   * Obtains data cached by the app.
+   * @param key
+   */
+  getAppData(key) {
+    return this.dataCache[key]
+  },
+  /**
+   * Sets the data cached by the app.
+   * @param key
+   * @param val
+   */
+  setAppData(key, val) {
+    this.dataCache[key] = val
+  },
+  _setupPushNotifications() {
+    if (push.getProvider() === 'huawei') {
+      // If regId exists in the storage, it does not need to register
+      storage.get({ 
+        key: 'regId',
+        default: '' })
+        .then((res) => {
+          if (res.data.length === 0) {
+            // Subscribe for the first time
+            push.subscribe()
+              .then((result) => {
+                console.log(`Subscribed to push notifications regId: ${result.data.regId}`)
+                storage.set({
+                  key: 'regId',
+                  value: result.data.regId})
+              })
+          } else {
+            console.log(`You can keep using the regId: ${res.data}`)
+          }
+        })
+    }
+    // to add other providers
+  },
+  /**
+   * Stores a pair key=value with the latest version loaded by this app.
+   */
+  _storeLatestVersionUsed() {
+    const self = this
+    storage.get({
+      key: 'db_version',
+      default: data.meta.version })
+      .then((res) => {
+        // If current version is higher than the stored
+        if (parseInt(self.dataCache.meta.version) > parseInt(res.data)) {
+          storage.set({
+            key: 'db_version',
+            value: self.dataCache.meta.version})
+        }
+      })
+      .catch((err) => { 
+        console.error(`   🐛 I could not store the version. Reason: ${err}`) 
+      });
+  },
+  toggleLikedPoi(id, name) {
+    const index = this.dataCache.likedIds.indexOf(id)
+    if (index >= 0) {
+      // Removes the item from the array
+      console.info(`Unliked ${id}. Removing from the array of favorites`)
+      this.dataCache.likedIds.splice(index, 1)
+      prompt.showToast({ 
+        message: this.i18n.$t('message.app.likes.removed', {title: name}), 
+        duration: "3000", 
+        gravity: 'bottom' 
+      })
+    } else {
+      console.info(`Liked ${id}. Adding to the array of favorites`)
+      this.dataCache.likedIds.push(id)
+      prompt.showToast({ 
+        message: this.i18n.$t('message.app.likes.added', {title: name}), 
+        duration: "3000", 
+        gravity: 'bottom' 
+      })
+    }
+    // Now stores the updated list of likes
+    storage.set({
+      key: 'liked',
+      value: JSON.stringify(this.dataCache.likedIds)
+    })
+    return this.dataCache.likedIds
+  },
+  _getLikedIdsFromStorage() {
+    return new Promise((resolve, reject) => {
+      storage.get({
+        key: 'liked',
+        default: "[]" })
+        .then((res) => {
+          // Convert string into array
+          this.dataCache.likedIds = [].concat(JSON.parse(res.data))
+          console.info(`[0] Retrieving the Liked PoIs from local storage (${this.dataCache.likedIds.length} items)`)
+          resolve(this.dataCache.likedIds)
+        })
+        .catch((err) => { 
+          console.error(`   🐛 I could not store the liked IDs. Reason: ${err}`) 
+          reject(err)
+        });
+    })
+  },  
+  _getSwitchFavsSelectionFromStorage() {
+    return new Promise((resolve, reject) => {
+      storage.get({
+        key: 'filter_favorites_switch',
+        default: 'false' })
+        .then((res) => {
+          this.dataCache.filterFavorites = res.data === 'true'
+          resolve(this.dataCache.filterFavorites)
+        })
+    })
+  }, 
+  _updateDatabase() {
+    return new Promise((resolve, reject) => {
+      console.info('[2] Fetching external resources with latest configuration...')
+      fetch.fetch({
+        url: data.meta.source_url,
+        method: 'get'
+      }).then((result) => {
+        try {
+          if (result && result.data.code === 200) {
+            const json = JSON.parse(result.data.data)
+            if (json.meta.version && (json.meta.version > data.meta.version)) {
+              // Updates the locale
+              this._setupLocale(json.content)
+              this.setAppData('meta', Object.assign({}, json.meta))
+              this.setAppData('appInfo', Object.assign({}, json.content[this.locale].app))
+              this.setAppData('pois', [].concat(json.content[this.locale].pois))
+              console.info(`   ✔️ Using (remote) database version v${json.meta.version}`);
+            } else {
+              console.info(`   ✔️ Using local database version v ${data.meta.version}`);
+            }
+          }
+        } catch(e) {
+          console.error(`   🐛 I could not fetch the external resource. Reason: ${e}`);
+        }
+        console.info(`   ✔️ ${this.getAppData('pois').length} POIs loaded from Release v${this.getAppData('meta').version}`)
+      })
+      .finally(() => { resolve(this.getAppData('meta').version)} )
+    })
+  },
+  /**
+   * Finds the closest locale from a JSON object whose keys are the ISO tags to match
+   * with the given `locale` string. 
+   */
+  _closestLocale (locale, available) {
+    if (typeof locale === 'string' && available[locale]) {
+      return locale
+    }
+    const components = locale.split('-');
+    while (components.length) {
+      const potential = components.join('-')
+      if (available[potential]) {
+        return potential
+      }
+      components.pop()
+    }
+    // If none, returns the first available
+    return Object.keys(available)[0]
+  },
+  /**
+   * Configure the best locale to serve the content, based on the config JSON object 
+   * */  
+  _setupLocale(json) {
+    const localeObject = configuration.getLocale()
+    const systemLocale = [localeObject.language, localeObject.countryOrRegion]
+      .filter(n => !!n)
+      .join('-')
+    this.locale = this._closestLocale(systemLocale, json)
+    console.info(`[1] Selected the closest locale [${this.locale}]`)
+  },
+  geolocateUser() {
+    return new Promise((resolve, reject) => {
+      const res = this.tryAndGetGeolocation()
+      resolve(res)
+    })
+  },
+  /** 
+   * Get the permission from the user,  
+   */
+  async tryAndGetGeolocation() {
+    const self = this
+    let granted = false
+    console.info('[3] Getting user location...')
+
+    const tryGeolocation = () => {
+      return new Promise((resolve, reject) => {
+        geolocation.getLocation({ 
+          success(res) { 
+            self.setAppData('myCoordinates', { lat: res.latitude, lon: res.longitude })
+            // If the distance is short (to the first PoI), it enables continous geolocation
+            console.info(`   ✔️ Got user\'s coordinates [${res.latitude},${res.longitude}]`)          
+            resolve(true)
+          }, 
+          fail(res, code) {
+            console.error(`   🐛 Error getting the location (code ${code})`)
+            resolve(false)
+          },
+        })
+      })
+    }
+    const showDialog = () => {
+      return new Promise((resolve, reject) => {
+        prompt.showDialog({ 
+          title: self.i18n.$t('message.app.geolocation.request'), 
+          message: self.i18n.$t('message.app.geolocation.description'), 
+          buttons: [ 
+            { 
+              text: self.i18n.$t('message.app.geolocation.yes'), 
+            },
+            { 
+              text: self.i18n.$t('message.app.geolocation.settings'), 
+            }, 
+            { 
+              text: self.i18n.$t('message.app.geolocation.no'), 
+            },
+          ], 
+          success: function (res) { 
+            if (res.index === 0) {
+              console.info({ message: '    The user wants to repeat the process' })
+            } else if (res.index === 2) {
+              console.info("   🚫 User doesn't grant geolocation permissions"); 
+              self.exit()
+            } else if (res.index === 1) {
+              console.info("   Opening geolocation settings");
+              router.push({
+                uri: 'hap://settings/location_source_manager',
+              })
+            }
+          }, 
+          cancel: function(){ 
+            console.info("   🚫 User cancelled the geolocation permission dialog"); 
+          },
+          complete: function() {
+            resolve(false)
+          },
+        })
+      })
+    } 
+    
+    while (!granted) {
+      // Infinite loop until geolocation is granted 
+      granted = await tryGeolocation()
+      if (!granted) {
+        granted = await showDialog()
+      }
+    }
+  },
+  generateMapUrl() {
+    console.info('[5] Generating global map URL...')
+    const url = `${mapBaseUrl}?icon=${markerIconColor}&locale=${this.locale}&url=${encodeURIComponent(data.meta.source_url)}` 
+    this.setAppData('globalMapURL', url) 
+    return url
+  },
+  generateIndidivualMapUrl(item) {
+    console.info(`Generating individual map URL for ${item.id}...`)
+    const geojson = {
+      type: "Feature",
+      properties: {
+        popupContent: item.name
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [ parseFloat(item.lon), parseFloat(item.lat) ]
+      }
+    }
+    const url = `${mapBaseUrl}?icon=${markerIconColor}`+
+      `&locale=${this.locale}&geojson=${encodeURIComponent(JSON.stringify(geojson))}` 
+    return url
+  },  
+  track(action, page) {
+    const matomoBaseUrl = this.dataCache.meta.matomo_base_url
+    if (!matomoBaseUrl) { return false }
+    const url = `http://${this.manifest.package}/v${this.manifest.versionCode}/${page}`
+    const random = String(Math.floor(Math.random()*1000)).padStart(4, '0');
+    let matomoUrl = matomoBaseUrl + `&rand=${random}&action_name=${action}&url=${url}`
+    matomoUrl += `&_id=${this.dataCache.userId}`
+    const self = this
+    device.getInfo()
+      .then((res) => {
+        self.dataCache.screenHeight = data.windowHeight
+        matomoUrl += `&res=${res.data.screenWidth}x${res.data.screenHeight}`
+        matomoUrl += `&lang=${res.data.language}-${res.data.region}` 
+        matomoUrl += `&ua=${res.data.model}-${res.data.platformVersionCode}` 
+        fetch.fetch({url: matomoUrl})
+      })
+  }
+}
+</script>

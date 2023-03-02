@@ -1,0 +1,95 @@
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type"].value)}},
+      "lon" : {{jsonize(cells["lon"].value)}},
+      "lat" : {{jsonize(cells["lat"].value)}},
+      "name" : {{jsonize(cells["name_en"].value)}},
+      "description" : {{jsonize(cells["description_en"].value)}},
+      "more" : {{if(cells["more_en"].value!=null, jsonize(cells["more_en"].value) , '""')}},
+      "images" : [{{ if(cells["image"].value!=null, jsonize(cells["image"].value), '') }}],
+      "wikidata" : {{ if(cells["wikidata"].value!=null, jsonize(cells["wikidata"].value), '""') }},
+      "attributions": {{ if(cells["attributions"].value!=null, cells["attributions"].value, '[]') }},
+      "urls": {{ cells["urls"].value}}
+    }
+    
+
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type"].value)}},
+      "lon" : {{jsonize(cells["lon"].value)}},
+      "lat" : {{jsonize(cells["lat"].value)}},
+      "name" : {{jsonize(cells["name_fr"].value)}},
+      "description" : {{jsonize(cells["description_fr"].value)}},
+      "more" : {{if(cells["more_fr"].value!=null, jsonize(cells["more_fr"].value) , '""')}},
+      "images" : [{{ if(cells["image"].value!=null, jsonize(cells["image"].value), '') }}],
+      "wikidata" : {{ if(cells["wikidata"].value!=null, jsonize(cells["wikidata"].value), '""') }},
+      "attributions": {{ if(cells["attributions"].value!=null, cells["attributions"].value, '[]') }},
+      "urls": {{ cells["urls"].value}}
+    }
+
+# Thumbnails
+value.replace(/commons\/(..?)\/(..?)\/(.+)/,'commons/thumb/$1/$2/$3/600px-$3')
+
+
+# GREL extract names from records
+
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='name', row.record.cells['v'][i].value, '')
+).join('')
+
+# Tourism
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='tourism', row.record.cells['v'][i].value, '')
+).join('')
+
+# wikidata
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='wikidata', row.record.cells['v'][i].value, '')
+).join('')
+
+# source
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='source', row.record.cells['v'][i].value, '')
+).join('')
+
+# artist
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='artist_name', row.record.cells['v'][i].value, '')
+).join('')
+
+# image
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='image', row.record.cells['v'][i].value, '')
+).join('')
+
+# artwork_type
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='artwork_type', row.record.cells['v'][i].value, '')
+).join('')
+
+# description
+forEachIndex(row.record.cells['k'],i, v, 
+if(v.value=='description', row.record.cells['v'][i].value, '')
+).join('')
+
+# URL Array on website
+'[\"https://www.openstreetmap.org/node/' + cells['id'].value + '\"' + 
+if(cells['phone'].value!=null, ',\"tel:'+ cells['phone'].value + '\"' , null) + 
+if(cells['website'].value!=null, ',\"'+ cells['website'].value + '\"' , null) + ']'
+
+
+if(
+  cells['viaf'].value!=null, 
+  cells['urls'].value.replace('[', '[\"'+ cells['viaf'].value + '\",'), 
+  cells['urls'].value)
+
+# description and label in French and English after reconciliation
+Dfr, Lfr
+Den, Len
+
+# To uppercase first character
+value.substring(0,1).toUppercase() + value.substring(1)
+
+
+
+'["Data from OpenStreetMap®, and Wikimedia"'+ if(cells['license'].value!=null, ',"'+cells['license'].value + '"', "") + "]"

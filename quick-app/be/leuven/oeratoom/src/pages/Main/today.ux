@@ -1,0 +1,127 @@
+<template>
+  <refresh class="today-container" refreshing="{{isRefreshing}}" onrefresh="refresh">
+    <div class="text">
+      <text class="intro">
+        {{$t('message.today.intro')}}
+      </text> 
+      <text class="figure">
+        {{getBackInTime()}}
+      </text>
+      <text if={{!isBeforeBigBang()}} class="after">
+        {{$t('message.today.after')}}
+      </text> 
+      <text if={{isBeforeBigBang()}} class="after">
+        {{$t('message.today.ring')}}
+      </text> 
+      <text class="walk">
+        {{$t('message.today.walk')}}
+      </text> 
+    </div>
+  </refresh>
+</template>
+
+<script>
+import { getDistance } from 'geolib'
+
+const centralLocation = { 
+  latitude: "50.8790618", 
+  longitude: "4.7024098" 
+}
+const zeroDay = { 
+  latitude: "50.883241", 
+  longitude: "4.6833935" 
+}
+// 13.78 billion years as a reference (central point)
+const millionReference = 13780
+
+export default {
+  private: { 
+    radius: 0,
+    meters: 0,
+    isRefreshing: false,
+  },
+  onInit() {
+    this.$app.track('access', `${this.$page.name}/today`)
+    this.radius = getDistance(zeroDay,centralLocation)
+  },
+  onDestroy() {
+  },
+  isBeforeBigBang() {
+    const meters = this._getDistanceFromCentralMedallion()
+    console.log(meters)
+    return (millionReference - parseInt(meters) * 10) < 0
+  },
+  getBackInTime() {
+    // Only in the user is in the scope of the artwork ()
+    this.meters = this._getDistanceFromCentralMedallion()
+    try {
+      // 10 million years / 1m from the 
+      const millionYears = millionReference - parseInt(this.meters) * 10
+      if (millionYears > 0) {
+        if (millionYears > 1000) {
+          return this.$t('message.today.billion', { years: (millionYears/1000).toFixed(2) })
+        }
+        return this.$t('message.today.million', { years: millionYears.toFixed(2) })
+      }
+    } catch (ex) {
+      console.error(ex)
+    }
+    return this.$t('message.today.zero')
+  },
+  _getDistanceFromCentralMedallion() {
+    console.info('[n] Getting distance from central medallion...')
+    const myCoordinates = this.$app.getAppData('myCoordinates')
+    const metres = getDistance(
+      { latitude: myCoordinates.lat, longitude: myCoordinates.lon },
+      centralLocation
+    )
+    return metres
+  },
+  refresh(e) {
+    const self = this
+    console.info(`[n] Refreshing position...`)
+    this.isRefreshing = e.refreshing
+    this.$app.geolocateUser().then(() => {
+      self.$parent().updatePoisByDistance()
+      self.$forceUpdate()
+      self.isRefreshing = false
+      console.info(`   ✔️ Age reloaded`)
+    })
+  },     
+}
+</script>
+
+<style lang="less">
+@import '../../assets/styles/style.less';
+
+.today-container {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  .text {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .intro {
+      text-align: center;
+      font-size: 4 * @size-factor;
+    }
+    .figure {
+      text-align: center;
+      font-size: 25 * @size-factor;
+      font-weight: bolder;
+    }
+    .after {
+      text-align: center;
+      font-size: 4 * @size-factor;
+    }
+    .walk {
+      text-align: center;
+      padding: 2 * @size-factor;
+      margin-top: 4 * @size-factor;
+      font-size: 3 * @size-factor;
+    }
+  }
+}
+</style>

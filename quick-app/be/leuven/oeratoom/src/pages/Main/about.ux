@@ -1,0 +1,129 @@
+<template>
+  <div class="page-container">
+    <div class="app-info">
+      <image src="/assets/images/logo.png"></image>
+      <text>{{nameApp}}</text>
+      <text class="release">
+        {{ $t('message.about.release') }}
+        v{{contentVersion}}</text>
+      <div class="buttons-wrap">
+        <input
+          class="button"
+          type="button"
+          value="{{$t('message.about.install.button')}}"
+          @click="createShortcut"
+        />
+      </div>
+    </div>    
+    <div class="app-legal">
+      <text>{{infoText}}</text>
+      <text if={{acknowledgeText}}>{{acknowledgeText}}</text>
+      <text if={{feedbackText}}>{{feedbackText}}</text>
+      <a if={{feedbackUrl}} href="{{feedbackUrl}}">{{ $t('message.about.involved') }}</a>
+      <a if={{repositoryUrl}} href="{{repositoryUrl}}">{{ $t('message.about.repository') }}</a>
+    </div>
+    <div class="acknowledgments">
+      <text>{{$t('message.about.acknowledments')}}</text>
+      <text for={{$t('message.about.acks')}}>{{$item}}</text>
+    </div>
+  </div>
+</template>
+
+<script>
+import prompt from '@system.prompt';
+import shortcut from '@system.shortcut';
+
+export default {
+  public: {
+  },
+  private: { 
+    nameApp: null,
+    infoText: null,
+    feedbackText: null,
+    acknowledgeText: null,
+    feedbackUrl: null,
+    repository_url: null,
+    contentVersion: null
+  },
+  onInit() {
+    this.nameApp = `${this.$app.manifest.name} v${this.$app.manifest.versionName}`
+    const meta = this.$app.getAppData('meta')
+    const appInfo = this.$app.getAppData('appInfo')
+    this.contentVersion = meta.version
+    this.infoText = appInfo.text_info
+    this.feedbackText = appInfo.text_feedback
+    this.feedbackUrl = appInfo.feedback_url
+    this.acknowledgeText = appInfo.text_acknowledge
+    this.repositoryUrl = appInfo.repository_url
+    this.$app.track('access', `${this.$page.name}/about`)
+  },
+  createShortcut() {
+    const self = this
+    shortcut.hasInstalled({
+      success: function(ret) {
+        if (ret) {
+          prompt.showToast({
+            message: self.$t('message.about.install.dialog.already')
+          })
+        } else {
+          shortcut.install({
+            message: self.$t('message.about.install.dialog.question'),
+            success: function() {
+              prompt.showToast({
+                message: self.$t('message.about.install.dialog.success')
+              })
+              self.$app.track('install', `${self.$page.name}`)
+            },
+            fail: function(errmsg, errcode) {
+              prompt.showToast({
+                message: self.$t('message.about.install.dialog.error', { error : errmsg })
+              })
+            }
+          })    
+        }
+      }
+    })
+  }
+}
+</script>
+
+<style lang="less">
+@import '../../assets/styles/style.less'; 
+
+.app-info {
+  padding: 5 * @size-factor;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  image {
+    width: 40%;
+  }
+}  
+.app-legal {
+  flex-direction: column;
+  padding: 4 * @size-factor;
+  padding-top: 0;
+  text {
+    margin-bottom: 4 * @size-factor;
+  }
+}
+.acknowledgments {
+  padding: 4 * @size-factor;
+  flex-direction: column;
+  text {
+    font-size: 2 * @size-factor;
+  }
+}
+.release {
+  font-size: 2 * @size-factor;
+}
+.buttons-wrap {
+  width: 100%;
+  flex-direction: row;
+  padding: 3.2 * @size-factor;
+  justify-content: center;
+  .button {
+    font-size: 3 * @size-factor;
+  }
+}
+</style>

@@ -1,0 +1,85 @@
+{
+    "message": {
+        "app": {
+            "geolocation" : {
+                "request" : "I need geolocation to work",
+                "description": "This app uses your geolocation to show the artworks nearby, nothing else. Please grant it :)",
+                "no": "No, exit",
+                "settings": "Open settings",
+                "yes": "Yes, continue"
+            },
+            "likes" : {
+                "added": "{title} added to favorites",
+                "removed": "{title} removed from favorites"
+            },
+            "init": {
+                "info": "Discover the history the Parisian Illustrious Women. Explore the places around you and add (♥) them to your favorites list.",
+                "button": "Start exploring >"
+            }
+        },
+        "tabs": [
+            {
+                "title": "Cards",
+                "icon": "\ue3b6"
+            },
+            {
+                "title": "Map",
+                "icon": "\ue55b"
+            },
+            {
+                "title": "About",
+                "icon": "\ue88e"
+            }
+        ],
+        "cards": {
+            "approx_km": "{distance} km from here",
+            "approx_m": "{distance} m from here",
+            "no_items": "No more items to show 😌\nUse the filters to refine your search.",
+            "filter": {
+                "only_favs": "show only favorites",
+                "placeholder": "type to filter..."
+            }            
+        },
+        "main": {
+            "loading": "Loading artworks..."
+        },
+        "detail": {
+            "approx_km": "Approx. at {distance} km from here",
+            "approx_m": "Approx. at {distance} m from here",
+            "acknowledgements": "A big thanks to our contributors:",
+            "wikidata": "Wikidata",
+            "more_info": "More information:",
+            "loading_map": "Loading map...",
+            "share": {
+                "body": "Hey, check {itemName} on {appName}. It's about {description} {url}",
+                "error": "I couldn't share the content :(" 
+            },
+            "buttons": {
+                "share": "Share",
+                "navi": "Directions",
+                "feedback": "Improve it"
+            },
+            "url_navi": "https://www.petalmaps.com/nav/{from_lon},{from_lat}/{to_lon},{to_lat}/My%20location/{name_poi}/walk" 
+        },
+        "about": {
+            "install" : {
+                "title": "Keep using this app?",
+                "button": "Install App",
+                "description": "Install the icon on your homescreen:",
+                "dialog": {
+                    "question": "Do you want to install the app to use it later?",
+                    "success": "Yeah! Homescreen icon created",
+                    "error": "I couldn't create the shortcut ({error})",
+                    "already": "Homescreen icon created already"
+                } 
+            },
+            "acknowledments": "Thanks to:",
+            "acks": [
+                "Maps by © OpenStreetMap"
+            ],
+            "release": "Content Release:",
+            "involved": "Get involved now!",
+            "repository": "More details of this project"
+        }
+    }
+}

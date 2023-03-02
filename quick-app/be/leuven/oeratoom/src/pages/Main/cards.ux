@@ -1,0 +1,181 @@
+<template>
+  <refresh class="refresh" refreshing="{{isRefreshing}}" onrefresh="refresh">
+    <stack class="page-container">
+      <list>      
+        <list-item
+          type="poi"
+          class="item-poi"
+          for="pois"
+          onclick="onItemClick($idx)"
+        >
+          <stack class="poi-image-wrap">
+            <image if="{{$item.images.length > 0 }}" src="{{$item.images[0]}}"></image>
+            <image else src="/assets/images/placeholder.png"></image>
+            <text if={{$item.years}} class="poi-overlay-type"> {{$t('message.cards.age', {age: $item.years})}}</text>
+          </stack>
+          <div class="poi-text-wrap">
+            <div class="poi-text-title">
+              <text class="poi-text-name">{{ $item.name }}</text>
+              <text class="poi-text-distance">{{ prettifyDistance($item.distance) }}</text>
+            </div>
+            <text class="poi-text-description">
+              <span>{{$t('message.cards.type', {type: $item.type})}}</span>
+              <span if={{$item.constellation}}>{{$t('message.cards.constellation', {constellation: $item.constellation})}}</span>
+              <span if={{$item.discoverers}}>{{$t('message.cards.discoverers', {discoverers: $item.discoverers})}}
+                <span if={{$item.discovery}}>{{$t('message.cards.year_discovery', {year: $item.discovery})}}</span>
+              </span>
+            </text>
+          </div>
+        </list-item>
+
+        <list-item type="loadStatus" class="load-status">
+          <text show="{{!hasMoreData}}">{{$t("message.cards.no_items")}}</text>
+        </list-item>
+      </list>
+    </stack>
+  </refresh>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    introText: '' ,
+    pois: [],
+    isRefreshing: false,
+    channel: null
+  },
+  onInit() {
+    this.introText = `${this.$app.manifest.name} v${this.$app.manifest.versionName}`
+    this.channel = new BroadcastChannel('updateChannel');
+    // Waits for the signal to load the page
+    this._loadAndRender()
+    this._subscribeChannelUpdate()
+    this.$app.track('access', `${this.$page.name}/cards`)    
+  },
+  onDestroy() {
+    this.channel.close()
+  },  
+  // This method is triggered when receives an update message
+  _subscribeChannelUpdate() {
+    const self = this
+    this.channel.onmessage = function (event) {
+      console.info(`[Main/cards.ux] Received update message ${event.data}`)
+      if (event.data === 'ready') {
+        self._loadAndRender()
+      }
+    }
+  },
+  refresh(e) {
+    const self = this
+    console.info(`[n] Refreshing cards...`)
+    this.isRefreshing = e.refreshing
+    this.$app.geolocateUser().then(() => {
+      this.$parent().updatePoisByDistance()
+      self._loadAndRender()
+      self.isRefreshing = false
+      console.info(`   ✔️ Cards re-loaded!`)
+    })
+  },   
+  /**
+   * Request and Render
+   */
+  _loadAndRender() {
+    // Re-request data and determine whether to render the list based on the mode.
+    this.pois = [].concat(this.$app.getAppData('pois'))
+  },
+  prettifyDistance(value) { 
+    try {
+      const number = parseInt(value);
+      if (number > 1000) {
+        return this.$t('message.cards.approx_km', { distance: (value/1000).toFixed(2) })        
+      }
+    } catch (ex) {
+      return ''
+    }
+    return this.$t('message.cards.approx_m', { distance: value })
+  },
+  onItemClick(index) {
+    router.push({ 
+      uri: 'pages/Detail', 
+      params: { 
+        identifier: this.pois[index].id, 
+        distance: this.pois[index].distance 
+      } 
+    })
+  },
+}
+</script>
+
+<style lang="less">
+@import '../../assets/styles/style.less'; 
+
+.item-poi {
+  background-color: #ffffff;
+  flex-direction: column;
+  width: 100%;
+  height: 700px;
+  border-radius: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  .poi-image-wrap {
+    height: 500px;
+    justify-content: flex-end;
+    image {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    .poi-overlay-type {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      font-weight: lighter;
+      height: 35px;
+      font-size: 30px;
+      align-self: flex-end;
+      margin-bottom: 10px;
+      padding: 5px;
+      padding-top: 0;
+    }
+  }
+  .poi-text-wrap {
+    width: 100%;
+    height: 30%;
+    padding: 1.6 * @size-factor;
+    background-color: #ffffff;
+    flex-direction: column;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    .poi-text-title {
+      flex-direction: row;
+      justify-content: space-between;
+      .poi-text-name {
+        color: #000000;
+        font-size: 3.6 * @size-factor;
+        lines: 1;
+        text-overflow: ellipsis;
+      }
+      .poi-text-distance {
+        color: #444444;
+        font-size: 2.4 * @size-factor;
+      }
+    }
+    .poi-text-description {
+      margin-top: 0.8 * @size-factor;
+      color: #585858;
+      font-size: 3 * @size-factor;
+      lines: 3;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.load-status {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+</style>

@@ -1,0 +1,272 @@
+<template>
+  <div class="page-container">
+    <div class="app-info">
+      <image src="/common/images/logo.png"></image>
+      <text>{{nameApp}}</text>
+      <text class="release">
+        {{ $t('message.about.release') }}
+        v{{contentVersion}}</text>
+      <div class="buttons-wrap">
+        <input
+          class="button"
+          type="button"
+          value="{{$t('message.about.install.button')}}"
+          @click="createShortcut"
+        />
+      </div>
+    </div>    
+    <div class="app-legal">
+      <text>{{infoText}}</text>
+      <text if={{acknowledgeText}}>{{acknowledgeText}}</text>
+      <text if={{feedbackText}}>{{feedbackText}}</text>
+      <a if={{feedbackUrl}} href="{{feedbackUrl}}">{{ $t('message.about.involved') }}</a>
+      <a if={{repositoryUrl}} href="{{repositoryUrl}}">{{ $t('message.about.repository') }}</a>
+    </div>
+    <div class="acknowledgments">
+      <text>{{$t('message.about.acknowledments')}}</text>
+      <text for={{$t('message.about.acks')}}>{{$item}}</text>
+    </div>
+    <div class="monetization" if="{{nativeAdResult && adShown}}">
+      <div class="native-item">
+        <stack class="nativeBox" 
+          onclick="reportNativeAdClick(nativeAdResult.adId)" 
+          onappear="reportNativeAdShow(nativeAdResult.adId)">
+          <div class="nativeMsgBox">
+            <image src="{{nativeAdResult.icon}}" class="nativeIcon"></image>
+            <div class="nativeText">
+              <text class="nativeTitle">{{nativeAdResult.title}}</text>
+              <text class="nativeDesc">{{nativeAdResult.source}}</text>
+            </div>
+            <div class="buttonBox">
+              <input type="button" class="button" value="{{nativeAdResult.clickBtnTxt}}" onclick="reportNativeAdClick(nativeAdResult.adId)"></input>
+            </div>
+          </div>
+          <div class="logoBox">
+            <text class="nativeClose" onclick="nativeHide()">{{ $t('message.about.close_ads') }}</text>
+            <image src="{{nativeAdResult.logoUrl}}" class="nativeLogo"></image>
+          </div>
+        </stack>
+      </div>
+    </div>    
+  </div>
+</template>
+
+<script>
+import prompt from '@system.prompt';
+import shortcut from '@system.shortcut';
+import ad from '@service.ad';
+
+export default {
+  public: {
+  },
+  private: { 
+    nameApp: null,
+    infoText: null,
+    feedbackText: null,
+    acknowledgeText: null,
+    feedbackUrl: null,
+    repository_url: null,
+    contentVersion: null,
+    nativeAdResult: null,
+    nativeAdUnitId: null,
+    adShown: false
+  },
+  onInit() {
+    this.nameApp = `${this.$app.manifest.name} v${this.$app.manifest.versionName}`
+    const meta = this.$app.getAppData('meta')
+    const appInfo = this.$app.getAppData('appInfo')
+    this.contentVersion = meta.version
+    this.infoText = appInfo.text_info
+    this.feedbackText = appInfo.text_feedback
+    this.feedbackUrl = appInfo.feedback_url
+    this.acknowledgeText = appInfo.text_acknowledge
+    this.repositoryUrl = appInfo.repository_url
+    this.$app.track('access', `${this.$page.name}/about`)
+    if (meta.native_ad_unit_id) {
+      this.nativeAdUnitId = meta.native_ad_unit_id
+      this.initNativeAd(this.nativeAdUnitId)
+    }
+  },
+  createShortcut() {
+    const self = this
+    shortcut.hasInstalled({
+      success: function(ret) {
+        if (ret) {
+          prompt.showToast({
+            message: self.$t('message.about.install.dialog.already')
+          })
+        } else {
+          shortcut.install({
+            message: self.$t('message.about.install.dialog.question'),
+            success: function() {
+              prompt.showToast({
+                message: self.$t('message.about.install.dialog.success')
+              })
+              self.$app.track('install', `${self.$page.name}`)
+            },
+            fail: function(errmsg, errcode) {
+              prompt.showToast({
+                message: self.$t('message.about.install.dialog.error', { error : errmsg })
+              })
+            }
+          })    
+        }
+      }
+    })
+  },
+  initNativeAd(adUnitId) {
+    if (ad.getProvider() !== '') {
+      ad.setUnderAgeOfPromise(true)    
+      let nativeAd = ad.createNativeAd({ adUnitId })
+      this.nativeAd = nativeAd
+      nativeAd.setAdContentClassification('W')
+      nativeAd.setNonPersonalizedAd(1)
+      nativeAd.onLoad(this.nativeAdOnLoad.bind(this))
+      nativeAd.onError(this.nativeAdOnError.bind(this))
+      nativeAd.load()
+    }
+  },
+  nativeAdOnError(err) {
+    console.log(`[Ads] Error: ${err.errMsg}, ${err.errCode}`)
+    this.adShown = false
+  },
+  nativeAdOnLoad(result) {
+    console.log('[Ads] Loaded native Ad ', JSON.stringify(result))
+    if (result && result.adList && result.adList.length>0) {
+      this.nativeAdResult = result.adList[0]
+      this.adShown = true
+    }
+  },
+  reportNativeAdClick(adId) {
+    if (this.nativeAdResult) {
+      this.nativeAd.reportAdClick({ adId: adId })
+      console.log(`[Ads] Report click by ${adId}`)
+    }
+  },
+  reportNativeAdShow(adId) {
+    if (this.nativeAdResult) {
+      this.nativeAd.reportAdShow({ adId: adId })
+      console.log(`[Ads] Report show to ${adId}`)
+    }
+  },
+  nativeHide(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation()
+    }
+    this.adShown = false
+  },
+}
+</script>
+
+<style lang="less">
+@import '../../common/styles/style.less'; 
+
+.page-container {
+  color: #585858;
+}
+.app-info {
+  padding: 4 * @size-factor;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  image {
+    width: 40%;
+  }
+}  
+.app-legal {
+  flex-direction: column;
+  padding-left: 4 * @size-factor;
+  padding-right: 4 * @size-factor;
+  text {
+    margin-bottom: 4 * @size-factor;
+  }
+}
+.acknowledgments {
+  padding: 4 * @size-factor;
+  flex-direction: column;
+  text {
+    font-size: 2 * @size-factor;
+  }
+}
+.release {
+  font-size: 2 * @size-factor;
+}
+.buttons-wrap {
+  width: 100%;
+  flex-direction: row;
+  padding: 2 * @size-factor;
+  justify-content: center;
+  .button {
+    font-size: 3 * @size-factor;
+    padding-left: 2 * @size-factor;
+    padding-right: 2 * @size-factor;
+  }
+} 
+/* Ads */
+.monetization {
+  flex-direction: column;
+  align-items: center;
+  height: 10 * @size-factor;
+
+  .native-item {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nativeBox {
+    width: 80%;
+    height: 10 * @size-factor;
+    background-color: #fafafa;
+    margin-bottom: 2 * @size-factor;
+  }
+  .nativeMsgBox {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  .nativeIcon {
+    width: 80px;
+    height: 80px;
+    margin-right: 2 * @size-factor;
+    margin-left: 3 * @size-factor;
+    border-radius: 180px;
+  }
+  .nativeText {
+    width: 70%;
+    flex-direction: column;
+  }
+  .nativeTitle {
+    font-weight: bold;
+    font-size: 2.4 * @size-factor;
+    margin-bottom: 1 * @size-factor;
+  }
+  .nativeDesc {
+    font-size: 2.4 * @size-factor;
+  }
+  .logoBox {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nativeClose {
+    width: 3 * @size-factor;
+    height: 3 * @size-factor;
+    text-align: center;
+    line-height: 1 * @size-factor;
+    font-size: 1 * @size-factor;
+    background-color: #ccc;
+    color: #fff;
+    opacity: 0.7;
+  }
+  .nativeLogo {
+    width: 3 * @size-factor;
+    height: 1 * @size-factor;
+  }
+  .buttonBox {
+    .button {
+      font-size: 2 * @size-factor;
+      padding: 1 * @size-factor;
+      margin-right: 2 * @size-factor;
+    }
+  }
+}
+</style>

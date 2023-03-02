@@ -1,0 +1,301 @@
+<import name="cards" src="./cards.ux"></import>
+<import name="today" src="./today.ux"></import>
+<import name="mymap" src="./mymap.ux"></import>
+<import name="about" src="./about.ux"></import>
+
+<template>
+  <stack class="stack-container">
+    <div class="page-container">
+      <tabs onchange="changeTab" index="{{activeTabIndex}}">
+        <tab-content>
+          <div class="content-container">
+            <div if="{{this.selectedTabIndex === 0}}">
+              <cards id="cards-component"></cards>
+            </div>
+            <div if="{{this.selectedTabIndex === 1}}">
+              <today id="today-component"></today>
+            </div>          
+            <div if="{{this.selectedTabIndex === 2}}">
+              <mymap id="map-component"></mymap>
+            </div>          
+            <div if="{{this.selectedTabIndex === 3}}">
+              <about id="about-component"></about>
+            </div>          
+          </div>
+        </tab-content>
+
+        <tab-bar class="tab-bar">
+          <div class="tab-item" for="tabList">
+            <text
+              class="iconfont"
+              style="color: {{$idx === this.selectedTabIndex ? this.activedColor : this.deactivedColor}}"
+            >
+              {{ $item.icon }}
+            </text>
+            <text
+              class="tab-title"
+              style="color: {{$idx === this.selectedTabIndex ? this.activedColor : this.deactivedColor}}"
+            >
+              {{ $item.title }}
+            </text>
+          </div>
+        </tab-bar>
+      </tabs>
+    </div>
+    <div id="page-splash" show="{{loading}}">
+      <image src="/assets/images/logo.png"></image>
+      <text class="brand">{{appName}}</text>
+      <div>
+        <text class="info">{{loadingMessage}}</text>
+        <progress type="circular" class="circular-progress"></progress>
+      </div>
+    </div>
+    <div id="page-splash-info" if={{!splashScreenSeen}}>
+      <div class="header">
+        <text class="title">{{$t('message.intro.title')}}</text>
+        <text class="info">{{$t('message.intro.help')}}</text>
+        <text class="info">{{$t('message.intro.help2')}}</text>
+      </div>
+      <image src="{{$t('message.intro.img')}}"></image>
+      <div class="button-container">
+        <input
+          class="button"
+          type="button"
+          value="{{$t('message.intro.button')}}"
+          @click="closeSplashScreen"
+        />
+      </div>
+      <div class="footer">
+        <text class="info">{{$t('message.intro.aware')}}</text>
+      </div>
+    </div>
+  </stack>    
+</template>
+
+<script>
+
+import { getDistance } from 'geolib'
+
+export default {
+  private: {
+    tabList: [      
+      {
+        title: 'cards',
+        icon: '\uf03e'
+      },
+      {
+        title: 'Today',
+        icon: '\ue8df'
+      },      
+      {
+        title: 'map',
+        icon: '\uf041'
+      },
+      {
+        title: 'about',
+        icon: '\uf129'
+      }
+    ],
+    selectedTabIndex: 0,
+    deactivedColor: '#909090',
+    activedColor: '#F99B93',
+    activeTabIndex: 0,
+    channel: null
+  },
+  public: {
+    appName: '',
+    loadingMessage: '',
+    loading: true,
+    splashScreenSeen: false,
+  },
+  onCreate() {
+    this.splashScreenSeen = this.$app.getAppData('splashScreenSeen')
+  },
+  onInit() {
+    this.initTabs() 
+    this.channel = new BroadcastChannel('updateChannel')
+    const appInfo = this.$app.getAppData('appInfo')
+    this.loadingMessage = this.$t('message.main.loading')
+    this.$app.setAppData('geolocationFound', false)
+    this.$page.setTitleBar({
+      text: appInfo.app_title, 
+      textColor: appInfo.theme.complementary, 
+      backgroundColor: appInfo.theme.brand, 
+      backgroundOpacity: 0.9
+    })
+    this.appName = `${this.$app.manifest.name} v${this.$app.manifest.versionName}`
+    this._registerListenerUpdates()
+  },
+  onDestroy() {
+    this.channel.close()
+  },
+  initTabs() {
+    const appInfo = this.$app.getAppData('appInfo')
+    for (let i = 0; i < this.tabList.length; i++) {
+      this.tabList[i] = {
+        title: this.$t(`message.tabs.${i}.title`),
+        icon: this.$t(`message.tabs.${i}.icon`)
+      }      
+    }
+  },
+  /**
+   * Waits for a signal to refresh the component
+   */
+  _registerListenerUpdates() {
+    const self = this
+    this.channel.onmessage = function(event) {
+      console.info(`[Main/index.ux] Received update message ${event.data}`)
+      if (event.data === 'ready') {
+        self.updatePoisByDistance()
+        self.loading = false
+      }
+    }
+  },  
+  updatePoisByDistance() {
+    this._setDistancePois()
+    this._reorderPOIs()
+  },
+  /* -------------------SelfCustomEvent------------------ */
+  changeTab(e) {
+    this.activeTabIndex = e.index
+    let index = e.index || 0
+    this.selectedTabIndex = index
+  },
+  onShow() {
+    const tab = this.$app.getAppData('activeTabIndex')
+    if (tab) {
+      this.activeTabIndex = tab
+      // Clear after reading
+      this.$app.setAppData('activeTabIndex', 0)
+    }
+  },
+  /** 
+   * Get the distance to the POI according to the current position 
+   */
+  _setDistancePois() {
+    console.info('[6] Setting distance of POIs from the user...')
+    const pois = [].concat(this.$app.getAppData('pois'))
+    const myCoordinates = this.$app.getAppData('myCoordinates')
+    for (let i = 0; i < pois.length; i++) {
+      const metres = getDistance(
+        { latitude: myCoordinates.lat, longitude: myCoordinates.lon },
+        { latitude: pois[i].lat, longitude: pois[i].lon }
+      )
+      // stores the latest distance in the array
+      pois[i].distance = metres
+    }
+    this.$app.setAppData('pois', pois)
+    console.info(`   ✔️ Distance set on ${pois.length} PoIs`);
+  },  
+  /**
+   * Reorder the POIs according to the current distance
+   */
+  _reorderPOIs() {
+    console.info('[7] Reordering PoIs...')
+    const pois = [].concat(this.$app.getAppData('pois'))
+    pois.sort((a, b) => (a.distance < b.distance) ? -1 : 1)
+    this.$app.setAppData('pois', pois)
+    console.info(`   ✔️ ${pois.length} PoIs reordered`)
+    return pois.length
+  },
+  closeSplashScreen() {
+    this.$app.setAppData('splashScreenSeen', true)
+    this.splashScreenSeen = true
+  }
+}
+</script>
+
+<style lang="less">
+@import '../../assets/styles/style.less'; 
+text {
+  font-size: 40px;
+  text-align: center;
+}
+.iconfont {
+  font-family: iconfont;
+}
+.stack-container {
+  .page-container {
+    flex-direction: column;
+    .tab-bar {
+      background-color: #fafafa;
+      border-top-width: 1px;
+      border-top-color: #f2f2f2;
+      .tab-item {
+        flex-direction: column;
+        justify-content: center;
+        .iconfont {
+          font-size: 50px;
+        }
+        .tab-title {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  #page-splash {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    image {
+      width: 40%;
+    }
+    .version, .info {
+      font-size: 20px; 
+    }
+  }
+  #page-splash-info {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    image {
+      width: 100%;
+    }
+    .header {
+      flex-direction: column;
+      background-color: #000000;
+      padding-left: 40px;
+      padding-right: 40px;
+      text {
+        width: 100%;
+      }
+      .title {
+        font-size: 45px;
+        color: @brand;
+        font-weight: bolder;
+      }
+      .info {
+        margin-top: 20px;
+        font-size: 25px;
+        color: white;
+        text-align: left;
+      }
+    }
+    .footer {
+      background-color: #000000;
+      padding-left: 40px;
+      padding-right: 40px;
+      .info {
+        font-size: 25px;
+        color: white;
+        text-align: left;
+      }
+    }
+    .button-container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      .button {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }          
+  }
+}
+</style>

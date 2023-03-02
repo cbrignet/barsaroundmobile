@@ -1,0 +1,436 @@
+<import name="navi-button" src="./navi/button.ux"></import>
+<import name="navi-link" src="./navi/link.ux"></import>
+
+<template>
+  <div class="page-container">
+    <stack class="stack-container">
+      <list
+        class="list-container"
+        onscrolltop="onScrollTop"
+        onscroll="onScroll"
+      >
+        <list-item
+          class="item-images"
+          type="poiImgs"
+        >
+          <swiper
+            class="images-swiper"
+            autoplay="{{autoPlay}}"
+            interval="{{sliderValue}}"
+            indicator="{{indicator}}"
+            duration="{{durationValue}}"
+            vertical="{{isVertical}}"
+            previousmargin="{{marginValue}}"
+            nextmargin="{{marginValue}}"
+            loop="{{loopPlay}}"
+            style="indicator-bottom: {{topValue}}"
+          >
+            <stack if="{{item.images.length > 0 }}" class="poi-image-wrap" for="{{item.images}}">
+              <image
+                class="images-image"
+                src="{{$item}}"
+              ></image>
+              <text if={{item.type}} class="poi-overlay-type">{{item.type}}</text> 
+            </stack>
+            <stack else class="poi-image-wrap">
+              <image class="images-image" src="/common/images/placeholder.jpg"></image>
+              <text if={{item.type}} class="poi-overlay-type">{{item.type}}</text> 
+            </stack>
+          </swiper>
+        </list-item>
+
+        <list-item class="item-title" type="poisTitle">
+          <text class="item-text-name">{{ item.name }}</text>
+          <div class="distance-directions">
+            <text class="item-text-distance">{{ prettifyDistance(distance) }}</text>
+            <div class="button-directions">
+              <navi-link 
+                  to_lat="{{item.lat}}" to_lon="{{item.lon}}" 
+                  name_poi="{{item.name}}">
+              </navi-link>           
+            </div>
+          </div>
+          <div class="title-line"></div>          
+          <text class="title-text-description">{{ item.description }}</text>
+          <text class="title-text-description">{{ item.more }}</text>
+        </list-item>
+
+        <list-item class="item-more" type="acknowledgements" if="{{ item.attributions }}">
+          <div class="acknowledgements">
+            <text if="{{ item.attributions }}" class="item-text-contributor-intro">
+              {{$t('message.detail.acknowledgements')}}
+            </text>
+            <block for="{{ item.attributions }}">
+              <text class="item-text-contributor">
+                {{ $item }}
+                <span if="{{ (item.attributions.length - 1) === $idx }}">.</span>
+                <span else>;</span>
+              </text>
+            </block>
+          </div>
+          <div class="title-line"></div>
+        </list-item>
+        <list-item class="item-more" type="poisTechnical" if={{hasUrls(item)}}>
+          <text>{{ $t('message.detail.more_info') }}</text>
+          <text class="list-item" for="{{item.urls}}">
+            <a href="{{ $item }}">{{$item}}</a>
+          </text>
+          <text class="list-item">
+          <a if="{{ item.wikidata }}" href="https://www.wikidata.org/wiki/{{ item.wikidata }}">
+            {{ $t('message.detail.wikidata') }}
+          </a>
+          </text>
+        </list-item>
+        <list-item type="map">
+          <stack class="map-container">
+            <web src="{{mapUrl}}" @pagefinish={{pagefinish}}></web>
+            <div class="loading" show={{loadingMap}}>
+              <text class="help">{{$t('message.detail.loading_map')}}</text>
+            </div>
+          </stack>         
+        </list-item>  
+
+
+      </list>
+
+      <div class="titlebar-container">
+        <div
+          class="titlebar-wrap"
+          style="background-color: {{ isTop ? 'transparent' : '#ffffff' }}">
+          <image
+            class="titlebar-image-back"
+            src="../../common/images/back.png"
+            @click="onBack"
+          ></image>
+          <text class="titlebar-text-title" show="{{!isTop}}">{{item.name}}</text>
+        </div>
+        <div class="titlebar-line" show="{{!isTop}}"></div>
+      </div>
+    </stack>
+
+    <div class="bottom-container">
+      <div class="bottom-line"></div>
+
+      <div class="buttons-wrap">
+        <input
+          class="button"
+          type="button"
+          value="{{ isLikedPoI? iconLiked : iconUnliked }}"
+          @click="toggleLike"
+        />
+        <navi-button 
+          to_lat="{{item.lat}}" to_lon="{{item.lon}}" 
+          name_poi="{{item.name}}">
+        </navi-button>
+        <!-- <input
+          class="button"
+          type="button"
+          value="{{ iconFeedback }}"
+          data-title="{{$t('message.detail.buttons.feedback')}}"
+          @click="feedbackItem"
+        /> -->
+        <input
+          class="button"
+          type="button"
+          value="{{ iconShare }}"
+          data-value="{{$t('message.detail.buttons.share')}}"
+          @click="shareItem"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import router from '@system.router'
+import share from '@system.share' 
+import prompt from '@system.prompt'
+import webview from '@system.webview'
+
+export default {
+  private: {
+    isTop: true,
+    pois: [],
+    item: null, 
+    loadingMap: true,
+    iconLiked: '\ue87d',
+    iconUnliked: '\ue87e',
+    iconFeedback: '\ue266',
+    iconShare: '\ue80d',
+    currentLikedIds: [],
+    isLikedPoI: false,
+    mapUrl: 'https://geojson.pbest.me',
+  },
+  public: {
+    identifier: null,
+    distance: null,
+  },
+  onInit() {
+    this.item = this.$app.getAppData('pois').find(item => item.id === this.identifier)
+    this.currentLikedIds = this.$app.getAppData('likedIds')
+    this.isLikedPoI = this.currentLikedIds.includes(this.item.id)
+    this.mapUrl = this.$app.generateIndidivualMapUrl(this.item)
+    this.loadingMap = true
+    this.$app.track('access', `${this.$page.name}/${this.item.id}`)    
+  },
+  onBack() {
+    router.back()
+  },
+  toggleLike() {
+    // Retrieve the likes stored in the data cache
+    this.currentLikedIds = this.$app.toggleLikedPoi(this.item.id, this.item.name)
+    this.isLikedPoI = this.currentLikedIds.includes(this.item.id)
+  },  
+  exits(key) {
+    return this.item[key]
+  },
+  pagefinish() {
+    this.loadingMap = false
+  },
+  prettifyDistance(value) { 
+    try {
+      const number = parseInt(value);
+      if (number > 1000) {
+        return this.$t('message.detail.approx_km', { distance: (value/1000).toFixed(2) })
+      }
+    } catch (ex) {
+      return ''
+    }
+    return this.$t('message.detail.approx_m', { distance: value })
+  },  
+  onScrollTop() {
+    const that = this
+    setTimeout(() => {
+      that.isTop = true
+    }, 100)
+  },
+  onScroll(param) {
+    if (this.isTop && 0 !== param.scrollY) {
+      this.isTop = false
+    }
+  },
+  hasUrls(item) {
+    return (item.urls && item.urls.length > 0) || item.wikidata
+  },
+  shareItem() {
+    const meta = this.$app.getAppData('meta')
+    const url = meta.marketplace_url? `(${meta.marketplace_url})` : ''
+    const self = this
+    share.share({ 
+      type: 'text/plain', 
+      data: this.$t('message.detail.share.body', { 
+        itemName: this.item.name, 
+        appName: this.$app.manifest.name, 
+        description: this.item.description,
+        url: url }),
+      complete() {
+        self.$app.track('share', `${self.$page.name}/${self.item.id}`)
+      },  
+      fail(data, code) { 
+        prompt.showToast({
+          message: this.$t('message.detail.share.error')
+        })      
+      } 
+    });
+  },
+  feedbackItem() {
+    const appInfo = this.$app.getAppData('appInfo')
+    const identifier = `${this.item.name} (#${this.item.id})`
+    webview.loadUrl({ 
+      url: `${appInfo.issue_url}+${encodeURIComponent(identifier)}`
+    })
+  },
+}
+</script>
+
+<style lang="less">
+
+@import '../../common/styles/style.less'; 
+
+.stack-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  .list-container {
+    flex: 1;
+    width: 100%;
+    background-color: #eeeeee;
+    flex-direction: column;
+    .item-images {
+      width: 100%;
+      height: 800px;
+      background-color: #ffffff;
+      .images-swiper {
+        width: 100%;
+        height: 100%;
+        .poi-image-wrap {
+          flex-direction: column;
+          justify-content: flex-end;
+          .images-image {
+            width: 100%;
+            height: 100%;
+          }
+          .poi-overlay-type {
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 6 * @size-factor;
+            font-size: 5 * @size-factor;
+            align-self: flex-end;
+            font-weight: lighter;
+            margin-bottom: 2 * @size-factor;
+            padding: 1 * @size-factor;
+            padding-top: 0;
+          }
+        }
+      }
+    }
+    .item-title {
+      padding: 3.2 * @size-factor;
+      flex-direction: column;
+      background-color: #ffffff;
+      .item-text-name {
+        font-size: 4 * @size-factor;
+        color: #000000;
+      }
+      .distance-directions {
+        flex-direction: row;
+        margin-bottom: 2 * @size-factor;
+        .item-text-distance {
+          font-size: 2.5 * @size-factor;
+          color: #c7c2c2;
+        }
+        .button-directions {
+          margin-left: 2 * @size-factor;
+        }
+      }
+      .title-line {
+        width: 100%;
+        height: 1px;
+        background-color: #eeeeee;
+      }
+      .title-text-title {
+        margin-top: 3 * @size-factor;
+        width: 100%;
+        font-size: 3.5 * @size-factor;
+        color: #000000;
+      }
+      .title-text-description {
+        width: 100%;
+        font-size: 3 * @size-factor;
+        color: #c7c2c2;
+      }
+    }
+    .item-more {
+      padding: 3.2 * @size-factor;
+      padding-top: 0;
+      flex-direction: column;
+      background-color: #ffffff;
+      .list-item {
+        font-size: 2.5 * @size-factor;
+        padding-left: 1 * @size-factor;
+        padding-right: 1 * @size-factor;
+        lines: 1;
+      }
+      .acknowledgements {
+        flex-direction: column;
+        .item-text-contributor-intro {
+          font-size: 1.8 * @size-factor;
+          color: #c7c2c2;
+        }
+        .item-text-contributor {
+          font-style: italic;
+          font-size: 1.8 * @size-factor;
+          color: #c7c2c2;
+          padding-left: 3.2 * @size-factor;
+        }
+      }
+    }
+    .item-imagetext {
+      width: 100%;
+      margin-top: 3.2 * @size-factor;
+      flex-direction: column;
+      background-color: #ffffff;
+      .imagetext-text-title {
+        font-size: 3.5 * @size-factor;
+        color: #000000;
+        padding: 3.2 * @size-factor;
+      }
+      .imagetext-image {
+        width: 100%;
+      }
+    }
+  }
+  .titlebar-container {
+    flex-direction: column;
+    width: 100%;
+    background-color: transparent;
+    .titlebar-wrap {
+      flex-direction: row;
+      width: 100%;
+      height: 10 * @size-factor;
+      padding: 1.6 * @size-factor;
+      background-color: transparent;
+      align-items: center;
+      .titlebar-image-back {
+        background-color: #ffffff;
+        width: 6.4 * @size-factor;
+        height: 6.4 * @size-factor;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4 * @size-factor;
+      }
+      .titlebar-text-title {
+        color: #000000;
+        margin-left: 8 * @size-factor;
+        lines: 1;
+        text-overflow: ellipsis;
+        font-size: 4 * @size-factor;
+      }
+    }
+    .titlebar-line {
+      width: 100%;
+      height: 2px;
+      background-color: #f5f5dc;
+    }
+  }
+}
+.map-container {
+  width: 100%;
+  height: 600px;
+  flex-direction: column;
+  background-color: #a9a9a9;
+  .loading {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.bottom-container {
+  width: 100%;
+  flex-direction: column;
+  .bottom-line {
+    width: 100%;
+    height: 0.2 * @size-factor;
+    background-color: #eeeeee;
+  }
+  .buttons-wrap {
+    flex-direction: row;
+    justify-content: space-around;
+    .button {
+      font-family: iconfont;
+      border-width: 0.1 * @size-factor;
+      border-radius: 0.6 * @size-factor;;
+      font-size: 5 * @size-factor;
+      line-height: 5.2 * @size-factor;
+      border-color: #808080;
+      background-color: #fafafa;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1 * @size-factor;
+      padding-bottom: 1 * @size-factor;
+      color: @brand;
+    }
+  }
+}
+</style>

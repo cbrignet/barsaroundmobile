@@ -1,0 +1,62 @@
+{
+    "meta": {
+        "app_id": "org.example.same.identifier.manifest.package",
+        "app_title": "City Street Heritage",
+        "version": 1,
+        "updated": "2022-09-26",
+        "source_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/data.json",
+        "matomo_base_url": "https://matomo.pbest.me/matomo.php?idsite=1&rec=1",        
+        "marketplace_url": ""
+    },
+    "content": {
+        "en": {
+            "app": {
+                "theme": {
+                    "brand": "#B11623",
+                    "complementary": "#FAFAFA"
+                },
+                "repository_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app/tree/main/docs/country/city",
+                "text_info": "This app is created by locals and experts. As you can see, it's also free of charge. Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures.",
+                "text_acknowledge": "This quick app is an open-source project powered by open data and enriched by the community. Most of the information was extracted from Wikidata, OpenStreetMaps, and other public sources. You can find inaccuracies, so we apologize in advance.",
+                "text_feedback": "Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures. This app is created by locals and experts.",
+                "feedback_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/#get-involved",
+                "issue_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app/issues/new?labels=country/city&template=update_request.md&title=Update+Request"
+            },
+            "pois": [{
+                    "id": "uniqueID",
+                    "lat": "50.8789629",
+                    "lon": "4.7013242",
+                    "type": "statue",
+                    "name": "My Statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_2.jpg"
+                    ],
+                    "description": "One-paragraph description",
+                    "more": "More description, if you want",
+                    "urls": [
+                        "https://nl.wikipedia.org/wiki/De_Kotmadam_(Leuven)",
+                        "https://example.org/mypoi"
+                    ]
+                },
+                {
+                    "id": "uniqueID-2",
+                    "lat": "50.9",
+                    "lon": "4.8",
+                    "type": "statue",
+                    "name": "My Statue",
+                    "images": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_1.jpg",
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_2.jpg"
+                    ],
+                    "description": "One-paragraph description",
+                    "more": "More description, if you want",
+                    "urls": [
+                        "https://nl.wikipedia.org/MyPoi",
+                        "https://example.org/mypoi"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,334 @@
+{
+  "meta": {
+      "app_id": "es.espinr.bcn_beach",
+      "app_title": "BCN Beaches",
+      "version": 7,
+      "updated": "2023-01-03",
+      "source_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/es/barcelona/beach/data.json",
+      "matomo_base_url": "https://matomo.pbest.me/matomo.php?idsite=1&rec=1",        
+      "marketplace_url": "",
+      "native_ad_unit_id": ""
+  },
+  "content": {
+      "en": {
+          "app": {
+              "theme": {
+                  "brand": "#5342AE",
+                  "complementary": "#ffffff"
+              },
+              "place": "Barcelona",
+              "repository_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/tree/main/docs/es/barcelona/beach",
+              "text_info": "This app is created by enthusiasts, based on Barcelona Open Data and Wikidata. As you can see, it's also free of charge. Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures. Please, note that it's not an official app.",
+              "text_acknowledge": "This quick app is an open-source project powered by open data and enriched by the community. Most of the information was extracted from Barcelona Open Data and Wikidata using automatic means. So, if you find inaccuracies we apologize.",
+              "text_feedback": "Please let us know if you want to contribute with your experience, enrich the content, correct inaccuracies, or submit pictures.",
+              "feedback_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/es/barcelona/beach/#get-involved",
+              "issue_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/issues/new?labels=es/barcelona&template=update_request.md&title=Update%20Request"
+          },
+         "pois" : [
+          {
+            "id" : "99400270692",
+            "type" : "beach",
+            "lon" : "2.1952328977717435",
+            "lat" : "41.38346152967781",
+            "name" : "Somorrostro Beach",
+            "description" : "Beach at Barceloneta",
+            "more" : "With approximately 522 meters in length, the Somorrostro beach is located between the Gas breakwater and the Marina pier. It can be said that, on the city's coast, this beach embodies, among other values, the recovery of historical memory. Not many years ago, this stretch of coast, together with part of Barceloneta beach and the current beaches of Nova Icària and Bogatell, hosted the Somorrostro shantytown, in which around 15,000 people came to live people in very precarious conditions.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Barcelona_Beach_-_panoramio.jpg/600px-Barcelona_Beach_-_panoramio.jpg"],
+            "attributions": ["Open Data BCN","Wikimedia CC-BY: Andrei Dan Suciu" ],
+            "wikidata": "Q87167423", 
+            "urls": ["http://lameva.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-somorrostro"]
+          },
+          {
+            "id" : "99400455488",
+            "type" : "beach",
+            "lon" : "2.2176973761393084",
+            "lat" : "41.40457048313004",
+            "name" : "Beach access for citizens and dogs",
+            "description" : "Beach in Diagonal Mar i el Front Marítim del Poblenou",
+            "more" : "",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/002-Strand-Barcelona.jpg/600px-002-Strand-Barcelona.jpg"],
+            "attributions": ["Open Data BCN" ],
+            "wikidata": "Q3328909", 
+            "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges"]
+          },
+          {
+            "id" : "92086030400",
+            "type" : "beach",
+            "lon" : "2.2123276980931683",
+            "lat" : "41.39857924467329",
+            "name" : "Mar Bella Beach",
+            "description" : "Beach in Diagonal Mar i el Front Marítim del Poblenou",
+            "more" : "Its length is approximately 512 meters. Located to the east of the coast of Barcelona, ​​it is one of the beaches that was created taking advantage of the urban remodeling of the coast that took place in 1992 on the occasion of the Barcelona Olympic Games. The users of Mar Bella beach are mostly residents of the district of Sant Martí, which is where this beach belongs to, which has a loyal and numerous public. La Mar Bella beach has a space dedicated to a naturist beach. Near the Bac de Roda breakwater there is a children's play area and a volleyball area.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Platja_de_la_Mar_Bella_%28Barcelona%29_01.JPG/600px-Platja_de_la_Mar_Bella_%28Barcelona%29_01.JPG"],
+            "attributions": ["Open Data BCN", "Wikimedia CC-BY: Jordiferrer" ],
+            "wikidata": "Q3331605", 
+            "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-mar-bella"]
+          },
+          {
+            "id" : "92086030401",
+            "type" : "beach",
+            "lon" : "2.2142493854271126",
+            "lat" : "41.401144617626905",
+            "name" : "Nova Mar Bella Beach",
+            "description" : "Beach in Diagonal Mar i el Front Marítim del Poblenou",
+            "more" : "Its approximate length is 420 meters and, together with Mar Bella, it is part of the beaches that were created when the coastal facade of Barcelona was definitively recovered. It is, therefore, the result of the urban renewal that was carried out on the occasion of the Barcelona Olympic Games in 1992. The users of the Nova Mar Bella beach are mostly residents of the Sant Martí district, which is where the beach, which is considered one of the quietest in the city. This beach also has a volleyball area located in the middle.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Volleyball_at_Platja_de_la_Nova_Mar_Bella.JPG/600px-Volleyball_at_Platja_de_la_Nova_Mar_Bella.JPG"],
+            "attributions": ["Open Data BCN","Wikimedia CC-BY: Jordiferrer" ],
+            "wikidata": "Q3329668", 
+            "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-nova-mar-bella"]
+          },
+          {
+            "id" : "92086030398",
+            "type" : "beach",
+            "lon" : "2.1896792006250663",
+            "lat" : "41.373706513534366",
+            "name" : "Sant Sebastià Beach",
+            "description" : "Beach in la Barceloneta",
+            "more" : "Located in the Ciutat Vella district, it is the beach located further west of Barcelona. Sant Sebastià beach is, along with Barceloneta, the oldest and most traditional, with sports clubs of great relevance in the city for their activities related to the sea. It is also one of the largest, with a length of approximately 660 meters. It is also one of the beaches most frequented by Barcelona residents, as almost 70% of Sant Sebastià beach users are from Barcelona, ​​especially from Ciutat Vella. Even so, this is one of the beaches in the city that has the most foreign users.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/W_Barcelona_by_Ricardo_Bofill.jpg/600px-W_Barcelona_by_Ricardo_Bofill.jpg"],
+            "attributions": ["Open Data BCN","Wikimedia CC-BY: W Barcelona" ],
+            "wikidata": "Q3331620", 
+            "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-sant-sebastia"]
+          },
+          {
+            "id" : "92086030399",
+            "type" : "beach",
+            "lon" : "2.2028838890750646",
+            "lat" : "41.39076474300676",
+            "name" : "Nova Icària Beach",
+            "description" : "Beach in la Vila Olímpica del Poblenou",
+            "more" : "",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Platja_de_la_Nova_Ic%C3%A0ria_01.JPG/600px-Platja_de_la_Nova_Ic%C3%A0ria_01.JPG"],
+            "attributions": ["Open Data BCN" , "Wikimedia CC-BY: Jordiferrer"],
+            "wikidata": "Q3329630", 
+            "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&locale=ca-es"]
+          },
+          {
+            "id" : "92168143754",
+            "type" : "beach",
+            "lon" : "2.20675449785976",
+            "lat" : "41.39460267821261",
+            "name" : "Bogatell Beach",
+            "description" : "Beach in el Poblenou",
+            "more" : "It is approximately 702 meters long and is one of the beaches that acquired a new quality when Barcelona's seafront was restored during the nineties. On the Bogatell beach you will find several leisure facilities, such as two ping-pong tables - one of them next to the Bogatell breakwater -, a soccer field in the middle of the beach and a volleyball area at the other end, touching the Mar Bella breakwater.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Barcelona%27s_lifeguard.jpg/600px-Barcelona%27s_lifeguard.jpg"],
+            "attributions": ["Open Data BCN" , "Wikimedia CC-BY: Maria Moreno "],
+            "wikidata": "Q3329621", 
+            "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-bogatell"]
+          },
+          {
+            "id" : "92086030396",
+            "type" : "beach",
+            "lon" : "2.1922222424172015",
+            "lat" : "41.37861435600187",
+            "name" : "La Barceloneta Beach",
+            "description" : "Beach in la Barceloneta",
+            "more" : "Until recently, this beach gave its name to the strip of coastline between Sant Miquel beach and Marina pier. On the occasion of the recovery of the name of Somorrostro beach, Barceloneta beach is now included between the Gas breakwater, which is also known as the Ginebra breakwater, and the previously mentioned beach of Sant Michael Barceloneta beach is 422 meters long and is one of the oldest and most traditional beaches in the city. It is a favorite for foreign users and for leisure groups and schools, who often go there for activities.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Barcelona_%2816877599244%29.jpg/600px-Barcelona_%2816877599244%29.jpg"],
+            "attributions": ["Open Data BCN", "Wikimedia CC-BY: Kuba Bożanowski" ],
+            "wikidata": "Q1053014", 
+            "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-barceloneta"]
+          },
+          {
+            "id" : "99400119148",
+            "type" : "beach",
+            "lon" : "2.2217148764638015",
+            "lat" : "41.411066821389646",
+            "name" : "Bathing Area",
+            "description" : "Beach in el Besòs i el Maresme",
+            "more" : "",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Parc_dels_Auditoris1.JPG/600px-Parc_dels_Auditoris1.JPG"],
+            "attributions": ["Open Data BCN" , "Wikimedia CC-BY: Canaan"],
+            "wikidata": "Q11697775", 
+            "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&hideCloseButton=true"]
+          },
+          {
+            "id" : "99400165604",
+            "type" : "beach",
+            "lon" : "2.217741476714544",
+            "lat" : "41.405015109468714",
+            "name" : "Llevant (Eastern) Beach",
+            "description" : "Beach in Diagonal Mar i el Front Marítim del Poblenou",
+            "more" : "This is the last of the beaches created on the coast of Barcelona. It is located next to the Nova Mar Bella and was incorporated into the city in the summer of 2006. It is approximately 375 meters long. During the summer season, Llevant beach has a delimited area for access by citizens with dogs. Llevant beach is the result of the removal of the Prim breakwater and the construction of the platform that was to host the marine zoo, and it went into operation provisionally in the summer of 2006.",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/002-Strand-Barcelona.jpg/600px-002-Strand-Barcelona.jpg"],
+            "attributions": ["Open Data BCN" , "Wikimedia CC0: MartinThoma"],
+            "wikidata": "Q3328909", 
+            "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-llevant"]
+          },
+          {
+            "id" : "99400194035",
+            "type" : "beach",
+            "lon" : "2.1913705593606174",
+            "lat" : "41.37714207928898",
+            "name" : "Sant Miquel Beach",
+            "description" : "Beach in la Barceloneta",
+            "more" : "Wikimedia CC-BY: IonutDragu",
+            "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Barcelona_-_panoramio_%2853%29.jpg/600px-Barcelona_-_panoramio_%2853%29.jpg"],
+            "attributions": ["Open Data BCN", "Wikimedia CC-BY: IonutDragu" ],
+            "wikidata": "Q24019707", 
+            "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&locale=ca-es"]
+          }
+        ]
+      },
+      "ca": {
+        "app": {
+            "theme": {
+                "brand": "#5342AE",
+                "complementary": "#ffffff"
+            },
+            "place": "Barcelona",
+            "repository_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/tree/main/docs/es/barcelona/beach",
+            "text_info": "Aquesta aplicació està creada per entusiastes, basada en Barcelona Open Data i Wikidata. Com podeu veure, també és gratuït. Si us plau, fes-nos saber si vols contribuir amb la teva experiència, enriquir el contingut, corregir inexactituds o enviar imatges. Tingueu en compte que no és una aplicació oficial.",
+            "text_acknowledge": "Aquesta quick app és un projecte de codi obert impulsat per dades obertes i enriquit per la comunitat. La major part de la informació s'ha extret de Barcelona Open Data i Wikidata mitjançant mitjans automàtics. Per tant, si trobeu inexactituds us demanem disculpes.",
+            "text_feedback": "Si us plau, fes-nos saber si vols contribuir amb la teva experiència, enriquir el contingut, corregir inexactituds o enviar imatges.",
+            "feedback_url": "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/es/barcelona/beach/#get-involved",
+            "issue_url": "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/issues/new?labels=es/barcelona&template=update_request.md&title=Update%20Request"
+        },
+       "pois" : [
+        {
+          "id" : "99400270692",
+          "type" : "beach",
+          "lon" : "2.1952328977717435",
+          "lat" : "41.38346152967781",
+          "name" : "Platja del Somorrostro",
+          "description" : "Platja a la Barceloneta",
+          "more" : "Amb aproximadament 522 metres de llargada, la platja del Somorrostro està situada entre l'espigó del Gas i el moll de Marina. Es pot dir que, en el litoral de la ciutat, aquesta platja encarna, entre d'altres valors, la recuperació de la memòria històrica. No fa gaires anys, aquest tram del litoral, juntament amb una part de la platja de la Barceloneta i les actuals platges de la Nova Icària i el Bogatell, va acollir el barri de barraques del Somorrostro, en el qual van arribar a viure unes 15.000 persones en condicions molt precàries.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Barcelona_Beach_-_panoramio.jpg/600px-Barcelona_Beach_-_panoramio.jpg"],
+          "attributions": ["Open Data BCN","Wikimedia CC-BY: Andrei Dan Suciu" ],
+          "wikidata": "Q87167423", 
+          "urls": ["http://lameva.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-somorrostro"]
+        },
+        {
+          "id" : "99400455488",
+          "type" : "beach",
+          "lon" : "2.2176973761393084",
+          "lat" : "41.40457048313004",
+          "name" : "Àrea d'Accés per a Ciutadans amb Gossos",
+          "description" : "Platja a Diagonal Mar i el Front Marítim del Poblenou",
+          "more" : "",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/002-Strand-Barcelona.jpg/600px-002-Strand-Barcelona.jpg"],
+          "attributions": ["Open Data BCN","Wikimedia CC0: MartinThoma" ],
+          "wikidata": "Q3328909", 
+          "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges"]
+        },
+        {
+          "id" : "92086030400",
+          "type" : "beach",
+          "lon" : "2.2123276980931683",
+          "lat" : "41.39857924467329",
+          "name" : "Platja de la Mar Bella",
+          "description" : "Platja a Diagonal Mar i el Front Marítim del Poblenou",
+          "more" : "La seva llargada és d'aproximadament 512 metres. Situada a llevant del litoral de Barcelona, és una de les platges que es va crear aprofitant la remodelació urbanística del litoral que es va fer l'any 1992 amb motiu dels Jocs Olímpics de Barcelona. Els usuaris de la platja de la Mar Bella són majoritàriament residents al districte de Sant Martí, que és al qual pertany aquesta platja, que compta amb un públic fidel i nombrós. La platja de la Mar Bella disposa d'un espai dedicat a platja naturista. A prop de l'espigó de Bac de Roda hi ha una àrea de jocs infantils i una de vòlei.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Platja_de_la_Mar_Bella_%28Barcelona%29_01.JPG/600px-Platja_de_la_Mar_Bella_%28Barcelona%29_01.JPG"],
+          "attributions": ["Open Data BCN","Wikimedia CC-BY: Jordiferrer" ],
+          "wikidata": "Q3331605", 
+          "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-mar-bella"]
+        },
+        {
+          "id" : "92086030401",
+          "type" : "beach",
+          "lon" : "2.2142493854271126",
+          "lat" : "41.401144617626905",
+          "name" : "Platja de la Nova Mar Bella",
+          "description" : "Platja a Diagonal Mar i el Front Marítim del Poblenou",
+          "more" : "La seva llargada aproximada és de 420 metres i, juntament amb la Mar Bella, forma part de les platges que es van crear quan es va recuperar definitivament la façana litoral de Barcelona. És, doncs, fruit de la renovació urbanística que es va realitzar amb motiu dels Jocs Olímpics de Barcelona l'any 1992. Els usuaris de la platja de la Nova Mar Bella són majoritàriament residents al districte de Sant Martí, que és on està ubicada la platja, que és considerada una de les més tranquil·les de la ciutat. Aquesta platja compta també amb una àrea de volei ubicada al mig.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Volleyball_at_Platja_de_la_Nova_Mar_Bella.JPG/600px-Volleyball_at_Platja_de_la_Nova_Mar_Bella.JPG"],
+          "attributions": ["Open Data BCN","Wikimedia CC-BY: Jordiferrer" ],
+          "wikidata": "Q3329668", 
+          "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-nova-mar-bella"]
+        },
+        {
+          "id" : "92086030398",
+          "type" : "beach",
+          "lon" : "2.1896792006250663",
+          "lat" : "41.373706513534366",
+          "name" : "Platja de Sant Sebastià",
+          "description" : "Platja a la Barceloneta",
+          "more" : "Situada al districte de Ciutat Vella, és la platja situada més a ponent de Barcelona. La platja de Sant Sebastià és, juntament amb la de la Barceloneta, la més antiga i de major tradició, amb clubs esportius de gran rellevància a la ciutat per les seves activitats relacionades amb el mar. També és una de les més grans, amb una llargada d'aproximadament 660 metres. És també una de les platges més freqüentades dels barcelonins, ja que gairebé el 70% dels usuaris de la platja de Sant Sebastià són de Barcelona, en especial de Ciutat Vella. Tot i així, aquesta és una de les platges de la ciutat que compta amb més usuaris estrangers.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/W_Barcelona_by_Ricardo_Bofill.jpg/600px-W_Barcelona_by_Ricardo_Bofill.jpg"],
+          "attributions": ["Open Data BCN" , "Wikimedia CC-BY: W Barcelona"],
+          "wikidata": "Q3331620", 
+          "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-sant-sebastia"]
+        },
+        {
+          "id" : "92086030399",
+          "type" : "beach",
+          "lon" : "2.2028838890750646",
+          "lat" : "41.39076474300676",
+          "name" : "Platja de la Nova Icària",
+          "description" : "Platja a la Vila Olímpica del Poblenou",
+          "more" : "",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Platja_de_la_Nova_Ic%C3%A0ria_01.JPG/600px-Platja_de_la_Nova_Ic%C3%A0ria_01.JPG"],
+          "attributions": ["Open Data BCN","Wikimedia CC-BY: Jordiferrer" ],
+          "wikidata": "Q3329630", 
+          "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&locale=ca-es"]
+        },
+        {
+          "id" : "92168143754",
+          "type" : "beach",
+          "lon" : "2.20675449785976",
+          "lat" : "41.39460267821261",
+          "name" : "Platja del Bogatell",
+          "description" : "Platja a el Poblenou",
+          "more" : "Té una llargada d'aproximadament 702 metres i és una de les platges que van adquirir una nova qualitat quan es va recuperar la façana marítima de Barcelona durant els anys noranta. A la platja de Bogatell hi trobareu diversos equipaments d'oci, com ara dues taules de ping-pong - una d'elles al costat de l'espigó del Bogatell -, un camp de futbol al mig de la platja i una àrea de vòlei a l'altre extrem,tocant a l'espigó de la Mar Bella.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Barcelona%27s_lifeguard.jpg/600px-Barcelona%27s_lifeguard.jpg"],
+          "attributions": ["Open Data BCN" , "Wikimedia CC-BY: Maria Moreno "],
+          "wikidata": "Q3329621", 
+          "urls": ["http://barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-bogatell"]
+        },
+        {
+          "id" : "92086030396",
+          "type" : "beach",
+          "lon" : "2.1922222424172015",
+          "lat" : "41.37861435600187",
+          "name" : "Platja de la Barceloneta",
+          "description" : "Platja a la Barceloneta",
+          "more" : "Fins fa poc, aquesta platja donava nom a la franja del litoral compresa entre la platja de Sant Miquel i el moll de Marina. Amb motiu de la recuperació de la denominació de la platja del Somorrostro, la platja de la Barceloneta ara està compresa entre l'espigó del Gas, que també es coneix amb el nom d'espigó de Ginebra, i l'abans esmentada platja de Sant Miquel. La platja de la Barceloneta té una llargada de 422 metres i és una de les platges més antigues i amb més tradició de la ciutat. És una de les preferides pels usuaris estrangers i pels grups d'esplai i les escoles, que hi van sovint a fer activitats.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Barcelona_%2816877599244%29.jpg/600px-Barcelona_%2816877599244%29.jpg"],
+          "attributions": ["Open Data BCN","Wikimedia CC-BY: Kuba Bożanowski" ],
+          "wikidata": "Q1053014", 
+          "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-la-barceloneta"]
+        },
+        {
+          "id" : "99400119148",
+          "type" : "beach",
+          "lon" : "2.2217148764638015",
+          "lat" : "41.411066821389646",
+          "name" : "Zona de Banys",
+          "description" : "Platja a el Besòs i el Maresme",
+          "more" : "",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Parc_dels_Auditoris1.JPG/600px-Parc_dels_Auditoris1.JPG"],
+          "attributions": ["Open Data BCN" , "Wikimedia CC-BY: Canaan"],
+          "wikidata": "Q11697775", 
+          "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&hideCloseButton=true"]
+        },
+        {
+          "id" : "99400165604",
+          "type" : "beach",
+          "lon" : "2.217741476714544",
+          "lat" : "41.405015109468714",
+          "name" : "Platja de Llevant",
+          "description" : "Platja a Diagonal Mar i el Front Marítim del Poblenou",
+          "more" : "Aquesta és la darrera de les platges creades al litoral de Barcelona. Està situada al costat de la Nova Mar Bella i es va incorporar a la ciutat l'estiu del 2006. Té una llargada aproximada de 375 metres. Durant la temporada d'estiu, la platja de Llevant disposa d'una àrea delimitada per a l'accés de ciutadans amb gossos. La platja de Llevant és el resultat de la retirada de l'escullera de Prim i la construcció de la plataforma que havia d'acollir el zoo marí, i va entrar en funcionament de manera provisional l'estiu del 2006.",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/002-Strand-Barcelona.jpg/600px-002-Strand-Barcelona.jpg"],
+          "attributions": ["Open Data BCN","Wikimedia CC0: MartinThoma" ],
+          "wikidata": "Q3328909", 
+          "urls": ["http://www.barcelona.cat/ca/que-pots-fer-a-bcn/banys-i-platges/platja-de-llevant"]
+        },
+        {
+          "id" : "99400194035",
+          "type" : "beach",
+          "lon" : "2.1913705593606174",
+          "lat" : "41.37714207928898",
+          "name" : "Platja de Sant Miquel",
+          "description" : "Platja a la Barceloneta",
+          "more" : "Wikimedia CC-BY: IonutDragu",
+          "images" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Barcelona_-_panoramio_%2853%29.jpg/600px-Barcelona_-_panoramio_%2853%29.jpg"],
+          "attributions": ["Open Data BCN" , "Wikimedia CC-BY: IonutDragu"],
+          "wikidata": "Q24019707", 
+          "urls": ["https://book.timify.com/services?accountId=609b7203c9b6281189510d26&locale=ca-es"]
+        }
+      ]
+    }        
+  }
+}

@@ -1,0 +1,22 @@
+    {
+      "id" : {{jsonize(cells["id"].value)}},
+      "type" : {{jsonize(cells["type"].value)}},
+      "lon" : "{{jsonize(cells["longitude"].value)}}",
+      "lat" : "{{jsonize(cells["latitude"].value)}}",
+      "name" : {{jsonize(cells["name"].value)}},
+      "constellation" : {{jsonize(cells["constellation"].value)}},
+      "years" : {{jsonize(cells["pretty-years"].value.replace('Age: ', ''))}},
+      "description" : {{(if(cells["description"].value!=null, jsonize(cells["description"].value), jsonize(cells["name"].value)))}},
+      "discoverers" : {{jsonize(cells["discoverers"].value)}},
+      "discovery" : {{jsonize(cells["discovery"].value)}},
+      "radius" : {{jsonize(cells["radius"].value)}},
+      "loc" : {{jsonize(cells["Library of Congress authority ID"].value)}},
+      "freebase" : {{jsonize(cells["Freebase ID"].value)}},
+      "catalogue" : {{jsonize(cells["Principal Galaxies Catalogue ID"].value)}},
+      "quora" : {{jsonize(cells["Quora topic ID"].value)}},
+      "more" : "",
+      "images" : [{{ if(cells["image"].value!=null, jsonize(cells["image"].value), '') }}],
+      "attributions": ["Source: visitleuven.be/oeratoom", "Wikimeda, Wikimedia Commons", "Caltech or AAO/ROE" ],
+      "wikidata": {{jsonize(cells["Qid"].value)}}, 
+      "urls": []
+    }

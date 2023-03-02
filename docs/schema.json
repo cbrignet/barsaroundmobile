@@ -1,0 +1,352 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://ow2-quick-app-initiative.github.io/poi-quick-app/schema.json",
+    "title": "Schema of the config and database file",
+    "type": "object",
+    "default": {},
+    "required": [
+        "meta",
+        "content"
+    ],
+    "$defs": {
+        "hex_color": { 
+            "type": "string",
+            "pattern": "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$",
+            "examples": [
+                "#909090",
+                "#333333"
+            ]
+        }
+    },    
+    "properties": {
+        "meta": {
+            "title": "Basic metadata",
+            "type": "object",
+            "default": {},            
+            "required": [
+                "app_title",
+                "version",
+                "updated",
+                "source_url"
+            ],
+            "properties": {
+                "app_title": {
+                    "title": "The title of the app",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "LVN Street Heritage"
+                    ]
+                },
+                "app_id": {
+                    "title": "The package of the app",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "org.example.myapp"
+                    ]
+                },
+                "version": {
+                    "title": "The version of the app",
+                    "type": "integer",
+                    "default": 1,
+                    "examples": [
+                        1,
+                        2,
+                        3
+                    ]
+                },
+                "updated": {
+                    "title": "ISO8601-format last update",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "2022-03-19"
+                    ]
+                },
+                "source_url": {
+                    "title": "URL with the source of the configuration file",
+                    "type": "string",
+                    "pattern": "^(http|https)://.+$",
+                    "default": "",
+                    "examples": [
+                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/data.json"
+                    ]
+                },
+                "matomo_base_url": {
+                    "title": "URL with the base URL of a Matomo endpoint",
+                    "type": "string",
+                    "pattern": "^(http|https)://.+$",
+                    "default": "",
+                    "examples": [
+                        "https://matomo.pbest.me/matomo.php?idsite=1&rec=1"
+                    ]
+                }
+            }
+        },
+        "content": {
+            "title": "The schema for the content that includes one or more language tags",
+            "type": "object",
+            "default": {},
+            "minProperties": 1,
+            "patternProperties": {
+                "^[a-z]{2}(-[A-Z]{2})?$": {
+                    "title": "The content schema for any language",
+                    "type": "object",
+                    "default": {},
+                    "required": [
+                        "app",
+                        "pois"
+                    ],
+                    "properties": {
+                        "app": {
+                            "title": "Information about the app",
+                            "type": "object",
+                            "default": {},
+                            "required": [
+                                "theme",
+                                "repository_url",
+                                "text_info",
+                                "text_acknowledge",
+                                "text_feedback",
+                                "feedback_url",
+                                "issue_url"
+                            ],
+                            "properties": {
+                                "theme": {
+                                    "title": "The theme color",
+                                    "type": "object",
+                                    "default": {},
+                                    "required": [
+                                        "brand",
+                                        "complementary"
+                                    ],
+                                    "properties": {
+                                        "brand": {
+                                            "title": "The brand HEX color",
+                                            "$ref": "#/$defs/hex_color",
+                                            "default": "#B11623",
+                                            "examples": [
+                                                "#B11623"
+                                            ]
+                                        },
+                                        "complementary": {
+                                            "title": "The complementary color",
+                                            "$ref": "#/$defs/hex_color",
+                                            "default": "#FAFAFA",
+                                            "examples": [
+                                                "#FAFAFA"
+                                            ]
+                                        }
+                                    },
+                                    "examples": [{
+                                        "brand": "#B11623",
+                                        "complementary": "#FAFAFA"
+                                    }]
+                                },
+                                "repository_url": {
+                                    "title": "The URL to the main repository",
+                                    "type": "string",                     
+                                    "pattern": "^(http|https)://.+$",
+                                    "default": "",
+                                    "examples": [
+                                        "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/tree/main/docs/sample/"
+                                    ]
+                                },
+                                "text_info": {
+                                    "title": "Info text about the app",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "This app is created by locals and experts..."
+                                    ]
+                                },
+                                "text_acknowledge": {
+                                    "title": "Acknowledgements texts",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "...the information was extracted from Wikidata, OpenStreetMaps, and other public sources...."
+                                    ]
+                                },
+                                "favorite": {
+                                    "title": "It is favorite by default",
+                                    "type": "boolean",
+                                    "default": "false"
+                                },
+                                "text_feedback": {
+                                    "title": "Text to leave feedback",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "Please let us know if you want to contribute...."
+                                    ]
+                                },
+                                "feedback_url": {
+                                    "title": "URL to submit feedback",
+                                    "type": "string",                     
+                                    "pattern": "^(http|https)://.+$",
+                                    "default": "",
+                                    "examples": [
+                                        "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/#contributors"
+                                    ]
+                                },
+                                "issue_url": {
+                                    "title": "URL to submit individual feedback",
+                                    "type": "string",                     
+                                    "pattern": "^(http|https)://.+$",
+                                    "default": "",
+                                    "examples": [
+                                        "https://github.com/ow2-quick-app-initiative/poi-quick-app-implementations/issues/new?labels=country/city&template=update_request.md&title=Update+Request"
+                                    ]
+                                }                                
+                            }
+                        },
+                        "pois": {
+                            "title": "Schema for the Points of Interest",
+                            "type": "array",
+                            "minItems": 1,
+                            "default": [],
+                            "items": {
+                                "title": "Schema for each Point of Interest",
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "lat",
+                                    "lon",
+                                    "type",
+                                    "name",
+                                    "images",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "title": "Unique ID of the item",
+                                        "type": "string",
+                                        "examples": [
+                                            "3100608422",
+                                            "1150903685",
+                                            "oeratoom"
+                                        ]
+                                    },
+                                    "lat": {
+                                        "title": "Latitude coordinate",
+                                        "oneOf": [
+                                          {
+                                            "type": "string",
+                                            "pattern": "^(\\+|-)?(?:90(?:(?:\\.0{1,20})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,20})?))$"
+                                          },
+                                          { 
+                                            "type": "number",
+                                            "minimum": -90,
+                                            "maximum": 90
+                                          }
+                                        ],
+                                        "examples": [
+                                            "50.8789629",
+                                            "50.8784621"
+                                        ]
+                                    },
+                                    "lon": {
+                                        "title": "Longitude coordinate",
+                                        "oneOf": [
+                                          {
+                                            "type": "string",
+                                            "pattern": "^(\\+|-)?(?:180(?:(?:\\.0{1,20})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,20})?))$"
+                                          },
+                                          { 
+                                            "type": "number",
+                                            "minimum": -180,
+                                            "maximum": 180                                            
+                                          }
+                                        ],
+                                        "examples": [
+                                            "4.7013242",
+                                            "4.6997028",
+                                            "4.700880771666212"
+                                        ]
+                                    },
+                                    "type": {
+                                        "title": "Type of the item",
+                                        "type": "string",
+                                        "examples": [
+                                            "statue",
+                                            "sculpture",
+                                            "totem",
+                                            "obelisk",
+                                            "fountain"
+                                        ]
+                                    },
+                                    "name": {
+                                        "title": "Name of the item",
+                                        "type": "string",
+                                        "examples": [
+                                            "Pieter Coutereel",
+                                            "De Kotmadam",
+                                            "Fonske"
+                                        ]
+                                    },
+                                    "images": {
+                                        "title": "Images associated to the item",
+                                        "type": "array",
+                                        "items": {
+                                            "title": "URLs of the image",
+                                            "type": "string",                     
+                                            "pattern": "^(http|https)://.+$",
+                                            "examples": [
+                                                "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/60men.jpg",
+                                                "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/60men_2.jpg",
+                                                "https://ow2-quick-app-initiative.github.io/poi-quick-app-implementations/be/leuven/heritage/images/abraham.jpg"
+                                            ]
+                                        }
+                                    },
+                                    "description": {
+                                        "title": "Description of the item",
+                                        "type": "string",
+                                        "examples": [
+                                            "Pieter Couterel (1320-1373), mayor of Louvain",
+                                            "Lady running a kot, a typical type of student residence in Leuven"
+                                        ]
+                                    },
+                                    "more": {
+                                        "title": "Additional description",
+                                        "type": "string",
+                                        "examples": [
+                                            "Pieter Couterel (also 'Pe(e)ter' or 'Pierre'..."
+                                        ]
+                                    },
+                                    "attributions": {
+                                        "title": "Acknowledments and attributions",
+                                        "type": "array",
+                                        "items": {
+                                            "title": "Texts for attribution",
+                                            "type": "string",                     
+                                            "examples": [
+                                                "Images by ABD Photos",
+                                                "Content by Europeana"
+                                            ]
+                                        }
+                                    },                                    
+                                    "urls": {
+                                        "title": "Additional references (external URLs)",
+                                        "type": "array",
+                                        "items": {
+                                            "title": "URL to the external website",
+                                            "type": "string",                     
+                                            "pattern": "^(http|https|tel|mailto):/?/?.+$",
+                                            "examples": [
+                                                "https://nl.wikipedia.org/wiki/De_Kotmadam_(Leuven)",
+                                                "https://nl.wikipedia.org/wiki/Paep_Thoon"
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                }
+                            }
+						}
+                    }
+				}
+			}
+        }
+    }
+}

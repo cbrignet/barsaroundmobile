@@ -1,0 +1,327 @@
+<import name="cards" src="./cards.ux"></import>
+<import name="mymap" src="./mymap.ux"></import>
+<import name="about" src="./about.ux"></import>
+
+<template>
+  <stack class="stack-container">
+    <div class="page-container">
+      <tabs onchange="changeTab" index="{{activeTabIndex}}">
+        <tab-content>
+          <div class="content-container">
+            <div if="{{this.selectedTabIndex === 0}}">
+              <cards id="cards-component"></cards>
+            </div>
+            <div if="{{this.selectedTabIndex === 1}}">
+              <mymap id="map-component"></mymap>
+            </div>
+            <div if="{{this.selectedTabIndex === 2}}">
+              <about id="about-component"></about>
+            </div>          
+          </div>
+        </tab-content>
+
+        <tab-bar class="tab-bar">
+          <div class="tab-item" for="tabList" >
+            <text
+              id="{{$item.id}}"
+              class="iconfont"
+              style="color: {{$idx === this.selectedTabIndex ? this.activedColor : this.deactivedColor}}"
+            >
+              {{ $item.icon }}
+            </text>
+            <text
+              class="tab-title"
+              style="color: {{$idx === this.selectedTabIndex ? this.activedColor : this.deactivedColor}}"
+            >
+              {{ $item.title }}
+            </text>
+          </div>
+        </tab-bar>
+      </tabs>
+    </div>
+    <div id="page-splash" show="{{loading}}">
+      <image src="/common/images/logo.png"></image>
+      <text class="brand">{{appName}}</text>
+      <div>
+        <text class="info">{{loadingMessage}}</text>
+        <progress type="circular" class="circular-progress"></progress>
+      </div>
+    </div>
+    <div id="splash-first-experience" show="{{!closeIntro}}">
+      <stack class="image" >
+        <image src="/common/images/frontpage.jpg"></image>
+        <text class="brand">{{appName}}</text>
+      </stack>
+      <text class="info">{{appIntroText}}</text>
+      <input
+        class="button"
+        type="button"
+        value="{{$t('message.app.init.button') | uppercase }}"
+        @click="closeIntroSplash"
+      />    
+    </div>
+  </stack>    
+</template>
+
+<script>
+
+import { getDistance } from 'geolib'
+import storage from '@system.storage'
+
+export default {
+  private: {
+    tabList: [      // icons and titles are overwriten using i18n
+      {
+        title: '',
+        id: 'tab_cards',
+        icon: ''
+      },
+      {
+        title: '',
+        id: 'tab_map',
+        icon: ''
+      },
+      {
+        title: '',
+        id: 'tab_about',
+        icon: ''
+      }
+    ],
+    fistExperience: true,
+    closeIntro: false,
+    selectedTabIndex: 0,
+    deactivedColor: '#707780',
+    activedColor: '#000000',
+    activeTabIndex: 0,
+    appIntroText: '',
+    channel: null
+  },
+  public: {
+    appName: '',
+    loadingMessage: '',
+    loading: true
+  },
+  onInit() {
+    this.initTabs()
+    this.channel = new BroadcastChannel('updateChannel')
+    const appInfo = this.$app.getAppData('appInfo')
+    this.loadingMessage = this.$t('message.main.loading')
+    this.$app.setAppData('geolocationFound', false)
+    this.$page.setTitleBar({
+      text: appInfo.app_title, 
+      textColor: appInfo.theme.complementary, 
+      backgroundColor: appInfo.theme.brand, 
+      backgroundOpacity: 0.9
+    })
+    this.appName = `${this.$app.manifest.name}`
+    this.appIntroText = this.$t('message.app.init.info', {place: appInfo.place})
+    this._registerListenerUpdates()
+  },
+  onDestroy() {
+    this.channel.close()
+  },
+  uppercase(name) {
+    return name.toUpperCase()
+  },
+  initTabs() {
+    const appInfo = this.$app.getAppData('appInfo')
+    for (let i = 0; i < this.tabList.length; i++) {
+      this.tabList[i] = {
+        title: this.$t(`message.tabs.${i}.title`),
+        icon: this.$t(`message.tabs.${i}.icon`)
+      }      
+    }
+    this.activedColor = appInfo.theme.brand
+  },
+  /**
+   * Waits for a signal to refresh the component
+   */
+  _registerListenerUpdates() {
+    const self = this
+    this.channel.onmessage = function(event) {
+      console.info(`[Main/index.ux] Received update message ${event.data}`)
+      if (event.data === 'ready') {
+        self._checkIfFirstVisit()
+        self.updatePoisByDistance()
+        self.loading = false
+      }
+    }
+  },  
+  updatePoisByDistance() {
+    this._setDistancePois()
+    this._reorderPOIs()
+  },
+  _checkIfFirstVisit() {
+    const self = this
+    storage.get({ 
+      key: 'firstVisit',
+      default: 'false' })
+      .then((res) => {
+        if (res.data === 'false') {
+          self._addFavoritesByDefault()
+          storage.set({ 
+            key: 'firstVisit',
+            value: 'true' })           
+        }
+      }) 
+  },
+  _addFavoritesByDefault() {
+    // if it´s the first time, populates the array of favorites 
+    // with those marked as favorite=true in the db
+    const currentLikedIds = this.$app.getAppData('likedIds')
+    if (currentLikedIds && currentLikedIds.length === 0) {
+      const pois = this.$app.getAppData('pois')
+      pois.forEach(poi => {
+        if (poi.favorite) {
+          currentLikedIds.push(poi.id)
+        }        
+      });
+      storage.set({
+        key: 'liked',
+        value: JSON.stringify(currentLikedIds)
+      })
+    }
+  },
+  closeIntroSplash() {
+    this.closeIntro = true
+    // If regId exists in the storage, it does not need to register
+    // storage.set({ 
+    //   key: 'firstExperience',
+    //   value: 'true' }) 
+  },
+  /* -------------------SelfCustomEvent------------------ */
+  changeTab(e) {
+    this.activeTabIndex = e.index
+    let index = e.index || 0
+    this.selectedTabIndex = index
+  },
+  onShow() {
+    const tab = this.$app.getAppData('activeTabIndex')
+    if (tab) {
+      this.activeTabIndex = tab
+      // Clear after reading
+      this.$app.setAppData('activeTabIndex', 0)
+    }
+  },
+  /** 
+   * Get the distance to the POI according to the current position 
+   */
+  _setDistancePois() {
+    console.info('[6] Setting distance of POIs from the user...')
+    const pois = [].concat(this.$app.getAppData('pois'))
+    const myCoordinates = this.$app.getAppData('myCoordinates')
+    for (let i = 0; i < pois.length; i++) {
+      const metres = getDistance(
+        { latitude: myCoordinates.lat, longitude: myCoordinates.lon },
+        { latitude: pois[i].lat, longitude: pois[i].lon }
+      )
+      // stores the latest distance in the array
+      pois[i].distance = metres
+    }
+    this.$app.setAppData('pois', pois)
+    console.info(`   ✔️ Distance set on ${pois.length} PoIs`);
+  },  
+  /**
+   * Reorder the POIs according to the current distance
+   */
+  _reorderPOIs() {
+    console.info('[7] Reordering PoIs...')
+    const pois = [].concat(this.$app.getAppData('pois'))
+    pois.sort((a, b) => (a.distance < b.distance) ? -1 : 1)
+    this.$app.setAppData('pois', pois)
+    console.info(`   ✔️ ${pois.length} PoIs reordered`)
+    return pois.length
+  }  
+}
+</script>
+
+<style lang="less">
+@import '../../common/styles/style.less'; 
+text {
+  font-size: 40px;
+  text-align: center;
+}
+.iconfont {
+  font-family: iconfont;
+}
+.stack-container {
+  .page-container {
+    flex-direction: column;
+    .tab-bar {
+      background-color: #fafafa;
+      border-top-width: 1px;
+      border-top-color: #f2f2f2;
+      .tab-item {
+        flex-direction: column;
+        justify-content: center;
+        .iconfont {
+          font-size: 50px;
+        }
+        .tab-title {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  #page-splash {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    image {
+      width: 40%;
+      opacity: 0.6;
+    }
+    .version, .info {
+      font-size: 2 * @size-factor; 
+    }
+  }
+  #splash-first-experience {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    .image {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 4 * @size-factor; 
+      image {
+        width: 100%;
+        opacity: 0.7;
+      }
+    }
+    .brand {
+      color: @brand;
+      font-size: 10 * @size-factor;
+      font-weight: bolder;
+    }
+    .button {
+      padding: 4 * @size-factor; 
+      padding-top: 2 * @size-factor; 
+      padding-bottom: 2 * @size-factor; 
+      margin-top: 5 * @size-factor;
+      border-width: 0.5 * @size-factor;
+      border-radius: 2 * @size-factor;
+      font-size: 3 * @size-factor;
+      background-color: @brand;
+      color: #fafafa;
+      border-color: #fafafa;
+    }
+    .info {
+      padding-left: 5 * @size-factor;  
+      padding-right: 5 * @size-factor; 
+      text-align: left; 
+      color: #aaaaaa;
+      font-style: italic;
+      font-size: 3 * @size-factor;
+      padding-bottom: 3 * @size-factor; 
+    }
+  }
+}
+</style>
