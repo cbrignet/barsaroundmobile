@@ -50,6 +50,7 @@
                     "description": "Odalys is a 21 and over bar located in downtown Mobile. They have three different bars located inside of the bar. There is also an outside area with cornhole.",
                     "urls": [
                         "https://www.facebook.com/odalysirishpub/",
+                    ]
                 },
                 {
                     "id": "Electric Piano Bar",
@@ -114,5 +115,5 @@
                 }
             ]
         }
-    }
-}
+    [
+{
