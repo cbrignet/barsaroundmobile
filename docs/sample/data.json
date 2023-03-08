@@ -24,8 +24,8 @@
             },
             "pois": [{
                     "id": "Brickyard",
-                    "lat": "50.8789629",
-                    "lon": "4.7013242",
+                    "lat": "30.69119",
+                    "lon": "-88.04433",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
@@ -41,8 +41,8 @@
                 },
                 {
                     "id": "Odalys",
-                    "lat": "50.9",
-                    "lon": "4.8",
+                    "lat": "30.68953",
+                    "lon": "-88.05000",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
@@ -57,8 +57,8 @@
                 },
                 {
                     "id": "Electric Piano Bar",
-                    "lat": "50.8789629",
-                    "lon": "4.7013242",
+                    "lat": "30.69120",
+                    "lon": "-88.04491",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
@@ -74,8 +74,8 @@
                 },
                 {
                     "id": "Saddle Up Saloon",
-                    "lat": "50.9",
-                    "lon": "4.8",
+                    "lat": "30.60131",
+                    "lon": "-88.04479",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
@@ -91,8 +91,8 @@
                           },
                 {
                     "id": "Old Majestic Brewing Company",
-                    "lat": "50.8789629",
-                    "lon": "4.7013242",
+                    "lat": "30.69191",
+                    "lon": "-88.05139",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
@@ -108,8 +108,8 @@
                 },
                 {
                     "id": "BoHaydens",
-                    "lat": "50.9",
-                    "lon": "4.8",
+                    "lat": "30.69157",
+                    "lon": "-88.05172",
                     "type": "statue",
                     "name": "My Statue",
                     "images": [
