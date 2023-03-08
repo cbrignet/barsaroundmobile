@@ -99,8 +99,7 @@
                     "type": "bar",
                     "name": "BoHaydens",
                     "images": [
-                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_1.jpg",
-                        "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_2.jpg"
+                        "https://github.com/cbrignet/barsaroundmobile/blob/9d9bd608a6b2d973762cc9d97ba25a8931792550/docs/sample/BoHaydens",
                     ],
                     "description": "BoHaydens is a new bar located in downtown Mobile. You have to be 21 years old or older to enter the bar. They have golf simulators inside of the bar. If you wear the merchandise that is listed on their website, you will recieve happy hour prices at any time that you would like to go to the bar.",
                     "urls": [
