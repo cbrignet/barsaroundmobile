@@ -26,8 +26,8 @@
                     "id": "Brickyard",
                     "lat": "30.69119",
                     "lon": "-88.04433",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "Brickyard",
                     "images": [
                         "https://github.com/cbrignet/barsaroundmobile/blob/45c9917ce834f3b387b03085ea8abc745be67499/docs/sample/IMG_9359.HEIC",
                     ],
@@ -37,11 +37,11 @@
                     ]
                 },
                 {
-                    "id": "Odalys",
+                    "id": "Odalys Irish Pub",
                     "lat": "30.68953",
                     "lon": "-88.05000",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "Odalys Irish Pub",
                     "images": [
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_1.jpg",
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_2.jpg"
@@ -55,8 +55,8 @@
                     "id": "Electric Piano Bar",
                     "lat": "30.69120",
                     "lon": "-88.04491",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "Electric Piano Bar",
                     "images": [
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_1.jpg",
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_2.jpg"
@@ -70,8 +70,8 @@
                     "id": "Saddle Up Saloon",
                     "lat": "30.60131",
                     "lon": "-88.04479",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "Saddle Up Saloon",
                     "images": [
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_1.jpg",
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_2.jpg"
@@ -85,8 +85,8 @@
                     "id": "Old Majestic Brewing Company",
                     "lat": "30.69191",
                     "lon": "-88.05139",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "Old Majestic Brewing Company",
                     "images": [
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_1.jpg",
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID_2.jpg"
@@ -100,8 +100,8 @@
                     "id": "BoHaydens",
                     "lat": "30.69157",
                     "lon": "-88.05172",
-                    "type": "statue",
-                    "name": "My Statue",
+                    "type": "bar",
+                    "name": "BoHaydens",
                     "images": [
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_1.jpg",
                         "https://ow2-quick-app-initiative.github.io/poi-quick-app/sample/images/uniqueID2_2.jpg"
